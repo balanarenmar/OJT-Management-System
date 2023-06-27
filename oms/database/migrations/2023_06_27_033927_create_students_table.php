@@ -30,7 +30,10 @@ return new class extends Migration
             $table->integer('hrs_remaining');
 
             //$table->string('company_id')->nullable();   //Foreign Key to Company Entity
-            $table->timestamps();
+            /* $table->foreign('company_id')
+                    ->references('company_id')->on('companies')
+                    ->onDelete('cascade'); // set cascade deletion
+            $table->timestamps(); */
         });
     }
 
