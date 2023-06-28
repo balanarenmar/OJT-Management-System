@@ -80,12 +80,8 @@ class UserController extends Controller
         //create user in database
         $user = $this->createUser($incomingFields);
 
-        //create student
-        $adminFields = [
-            'account_id' => $incomingFields['account_id'],
-            'role' => $incomingFields['role']
-        ];
-        Admin::create($adminFields);
-        //ddd($adminFields);
+        $adminController = new AdminController();
+        $adminController->createAdmin($incomingFields);
+
     }
 }
