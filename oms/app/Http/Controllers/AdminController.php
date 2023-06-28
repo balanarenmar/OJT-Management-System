@@ -12,4 +12,7 @@ class AdminController extends Controller
     {
         return view('post.create');
     }
+
+    
+
 }
