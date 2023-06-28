@@ -31,9 +31,9 @@ Route::get('/', function () {
 
 
 // ROUTE FOR REGISTERING A USER (students)
-Route::post('/register', [UserController::class, 'register']);
+Route::post('/registerStudent', [UserController::class, 'registerStudent']);
 
-
+Route::post('/registerAdmin', [UserController::class, 'registerAdmin']);
 
 
 Route::get('/blogpost/{id}', function ($id) {

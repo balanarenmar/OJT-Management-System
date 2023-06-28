@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            //$table->foreignId('account_id')->constrained('users')->primary();   //Primary and Foreign Key
 
-            $table->string('account_id')->primary();
+            $table->string('account_id')->primary();       //Primary and Foreign Key
             $table->foreign('account_id')
                     ->references('account_id')->on('users')
                     ->onDelete('cascade'); // set cascade deletion
