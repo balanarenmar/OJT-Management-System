@@ -2,6 +2,7 @@
 
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -17,17 +18,41 @@ use App\Http\Controllers\UserController;
 */
 
 
-
-
-// INITIAL VIEW.
-//all listings
+//a INITIAL VIEW. root
 Route::get('/', function () {
+    //second argument can be an array containing any values
+    return view('index', [
+        'heading' => 'web.php Heading'
+    ]);
+});
+
+Route::get('/test', function () {
+    //second argument can be an array containing any values
+    return view('index2');
+});
+
+Route::get('/addstudent', function () {
     //second argument can be an array containing any values
     return view('welcome', [
         'heading' => 'web.php Heading',
         'blog_posts' => BlogPost::all() //retrieves all blog posts from the model
     ]);
 });
+
+
+Route::get('/omslogin', function () {
+    return view('oms_login');
+});
+
+
+Route::get('/register.student', function () {
+    //second argument can be an array containing any values
+    return view('welcome', [
+        'heading' => 'web.php Heading',
+        'blog_posts' => BlogPost::all() //retrieves all blog posts from the model
+    ]);
+});
+
 
 
 // ROUTE FOR REGISTERING A USER (students)

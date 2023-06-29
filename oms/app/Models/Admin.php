@@ -13,4 +13,5 @@ class Admin extends Model
         'account_id',
         'role'
     ];
+    
 }

@@ -34,11 +34,11 @@ class UserController extends Controller
     public function registerStudent(Request $request) {
         $incomingFields = $request->validate(
             [
-                'account_id' => ['required', 'min:14', 'max:14', Rule::unique('users', 'account_id')],
+                'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32'],
                 'middle_initial' => ['max:1'],
                 'last_name' => ['required', 'min:1', 'max:32'],
-                'email' => ['required', 'email', 'min:3', 'max:32'],
+                'email' => ['required', 'email', 'min:3', 'max:64'],
                 'password' => ['required', 'min:8', 'max:32'],
 
                 'account_type' => 'required',
@@ -65,7 +65,7 @@ class UserController extends Controller
         $incomingFields = $request->validate(
             [
                 //['required', 'min:14', 'max:14', Rule::unique('users', 'account_id')]
-                'account_id' => ['required', 'min:14', 'max:14', Rule::unique('users', 'account_id')],
+                'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32'],
                 'middle_initial' => ['max:1'],
                 'last_name' => ['required', 'min:1', 'max:32'],
@@ -82,6 +82,6 @@ class UserController extends Controller
 
         $adminController = new AdminController();
         $adminController->createAdmin($incomingFields);
-
+        return redirect('/admin');
     }
 }

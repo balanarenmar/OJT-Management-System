@@ -1,3 +1,6 @@
+<!-- Scripts -->
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 <h1>BLOG POSTS</h1>
     {{-- variable from the Route--}}
     <p>{{$heading}}</p>
@@ -12,7 +15,7 @@
             <input type="hidden" name="account_type" value="student">
 
             <label for="account_id">Account ID:</label>
-            <input type="text" name="account_id" maxlength="14" required pattern="[0-9]+-[0-9]+-[0-9]+" placeholder="0000-0000-0000"><br><br>
+            <input type="text" name="account_id" maxlength="15" required pattern="[0-9]+-[0-9]+-[0-9]+" placeholder="0000-0000-00000"><br><br>
     
             <label for="first_name">First Name:</label>
             <input type="text" name="first_name" maxlength="32" required><br><br>
@@ -24,10 +27,10 @@
             <input type="text" name="last_name" maxlength="32" required><br><br>
     
             <label for="email">Email:</label>
-            <input type="email" name="email" required placeholder="@bicol-u.edu.ph"><br><br>
+            <input type="email" name="email" placeholder="_@bicol-u.edu.ph" maxlength="64" required><br><br>
     
             <label for="password">Password:</label>
-            <input type="password" name="password" value="ojt-  2023" required><br><br>
+            <input type="password" name="password" value="ojt-2023" maxlength="32" required><br><br>
     
             <label for="course">Course:</label>
             <select name="course">
@@ -67,7 +70,7 @@
             <input type="hidden" name="account_type" value="admin">
 
             <label for="account_id">Account ID:</label>
-            <input type="text" name="account_id" maxlength="14" required><br><br>
+            <input type="text" name="account_id" maxlength="15" required><br><br>
     
             <label for="first_name">First Name:</label>
             <input type="text" name="first_name" maxlength="32" required><br><br>
@@ -79,15 +82,22 @@
             <input type="text" name="last_name" maxlength="32" required><br><br>
     
             <label for="email">Email:</label>
-            <input type="email" name="email" required><br><br>
+            <input type="email" name="email" required maxlength="64"><br><br>
     
             <label for="password">Password:</label>
-            <input type="password" name="password" required><br><br>
-    
+            <input type="password" name="password" maxlength="32" required><br><br>
+            
+            <label for="last_name">Role:</label>
+            <input type="text" name="role" maxlength="32" required><br><br>
+
             <button>REGISTER</button>
         </form>
 
     </div>
+
+    <a class="navbar-brand" href="{{ url('/') }}">
+        {{ config('app.name', 'Laravel') }}
+    </a>
 
     @unless (count($blog_posts) == 0)
         @foreach ($blog_posts as $post)
