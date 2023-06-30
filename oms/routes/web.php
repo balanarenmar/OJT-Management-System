@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,14 +25,13 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::post('/checkAccount', [UserController::class, 'checkAccount']);
+Route::post('/checkAccount', [AuthController::class, 'checkAccount']);
 
-// Route::get('/', function () {
-//     //second argument can be an array containing any values
-//     return view('index', [
-//         'heading' => 'web.php Heading'
-//     ]);
-// });
+
+Route::get('/register', [AuthController::class, 'showRegistration'])->name('register');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+
+
 
 Route::get('/test', function () {
     //second argument can be an array containing any values

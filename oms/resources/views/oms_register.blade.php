@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+    REGISTER
 </body>
 </html>
