@@ -17,6 +17,28 @@ class UserController extends Controller
         return view('post.create');
     }
 
+  
+    public function checkAccount(Request $request)
+    {   
+        $studentNumber = $request->validate(
+            ['account_id' => ['required', 'min:15', 'max:15']]
+        );
+
+        dd($studentNumber);
+
+        // Check if the student number already exists in the 'users' table
+        $user = User::where('account_id', $studentNumber)->first();
+        
+        if ($user) {
+            // Student number exists
+            return "Match found! Student number already exists.";
+        } else {
+            // Student number does not exist
+            return "No match found. Student number is available.";
+        }
+        dd($user);
+    }
+
     public function registerRequest(Request $request) {
         $incomingFields = $request->validate(
             [
@@ -27,7 +49,6 @@ class UserController extends Controller
                 'email' => ['required', 'email', 'min:3', 'max:64'],
                 'password' => ['required', 'min:8', 'max:32'],
 
-                'account_type' => 'required',
                 'course' => 'required',
                 'block' => 'required',
                 'year_level' => 'required',
@@ -72,7 +93,7 @@ class UserController extends Controller
                 'account_type' => 'required',
                 'course' => 'required',
                 'block' => 'required',
-                //'year' => 'required',
+                'year_level' => 'required',
                 'gender' => 'required',
                 'hrs_remaining' =>'required', 'integer'
             ]

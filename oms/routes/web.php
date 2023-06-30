@@ -24,12 +24,7 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::post('/land', [UserController::class, 'registerRequest']);
-
-Route::get('/land', function () {
-    //second argument can be an array containing any values
-    return view('landing');
-});
+Route::post('/checkAccount', [UserController::class, 'checkAccount']);
 
 // Route::get('/', function () {
 //     //second argument can be an array containing any values

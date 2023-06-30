@@ -36,16 +36,15 @@
     <div class="mt-4">
       <div class="d-flex">
         
-        <form class="form" action="/land" method="post">
+        <form class="form" action="/checkAccount" method="post">
           @csrf
             <div class="row">
               <!-- this is the text field and button area -->
               <div class="col-sm">
-                <input class="form-control form-control-lg" id="student_number" name="student_number" type="text" placeholder="Student Number" pattern="[0-9]+-[0-9]+-[0-9]+" maxlength="15" required >
-
+                <input class="form-control form-control-lg" id="account_id" name="account_id" type="text" placeholder="Student Number" pattern="[0-9]+-[0-9]+-[0-9]+" maxlength="15" required >
               </div>
               <div class="col-sm-auto">
-                  <button class="btn btn-primary btn-lg btn-block" id="submit" name="submit" type="submit">Submit</button>
+                  <button class="btn btn-primary btn-lg btn-block" id="submit" name="submit" type="submit" value="submit">Submit</button>
               </div>
             </div>
           </form>

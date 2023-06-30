@@ -19,7 +19,7 @@ class StudentController extends Controller
             'account_id' => $data['account_id'],
             'course' => $data['course'],
             'block' => $data['block'],
-            //'year' => $incomingFields['year'],
+            'year_level' => $data['year_level'],
             'gender' => $data['gender'],
             'status' => 'undeployed',
             'hrs_remaining' => $data['hrs_remaining'],
