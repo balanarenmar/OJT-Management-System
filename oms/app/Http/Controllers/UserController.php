@@ -16,6 +16,34 @@ class UserController extends Controller
     {
         return view('post.create');
     }
+
+    public function registerRequest(Request $request) {
+        $incomingFields = $request->validate(
+            [
+                'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
+                'first_name' => ['required', 'min:1', 'max:32'],
+                'middle_initial' => ['max:1'],
+                'last_name' => ['required', 'min:1', 'max:32'],
+                'email' => ['required', 'email', 'min:3', 'max:64'],
+                'password' => ['required', 'min:8', 'max:32'],
+
+                'account_type' => 'required',
+                'course' => 'required',
+                'block' => 'required',
+                'year_level' => 'required',
+                'gender' => 'required',
+                'hrs_remaining' =>'required', 'integer'
+            ]
+        );
+
+        //create user in database
+        $user = $this->createUser($incomingFields);
+
+        $studentController = new StudentController();
+        $studentController->createStudent($incomingFields);
+        
+        return redirect('/student');
+    }
     
     //function to create a User
     protected function createUser(array $data) {

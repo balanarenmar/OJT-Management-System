@@ -15,6 +15,7 @@ class Student extends Model
         'course',
         'block',
         'gender',
+        'year_level',
         'status',
         'hrs_rendered',
         'hrs_remaining'

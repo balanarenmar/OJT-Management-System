@@ -19,17 +19,7 @@
     <link rel="stylesheet" href={{ asset('able/css/able.css') }}>
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="{{ asset('able/js/vendor-all.min.js') }}"></script>
-    <script src="{{ asset('able/js/plugins/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('able/js/ripple.js') }}"></script>
-    <script src="{{ asset('able/js/pcoded.min.js') }}"></script>
-    <script src="{{ asset('able/js/menu-setting.min.js') }}"></script>
-    
-    <script src="{{ asset('able/js/pages/todo.js') }}"></script>
-    {{-- <script src="{{ asset('able/js/plugins/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('able/js/pages/ac-alert.js') }}"></script> --}}
-
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
 </head>
 <body class="background-img-5">
@@ -50,14 +40,13 @@
 					<div class="main-menu-header">
 						<img class="img-radius" src="{{ asset('able/images/user/avatar-2.jpg') }}">
 						<div class="user-details">
-							<div id="more-details">UX Designer <i class="fa fa-caret-down"></i></div>
+							<div id="more-details">Admin <i class="fa fa-caret-down"></i></div>
 						</div>
 					</div>
 					<div class="collapse" id="nav-user-link">
 						<ul class="list-inline">
-							<li class="list-inline-item"><a href="user-profile.html" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
-							<li class="list-inline-item"><a href="email_inbox.html"><i class="feather icon-mail" data-toggle="tooltip" title="Messages"></i><small class="badge badge-pill badge-primary">5</small></a></li>
-							<li class="list-inline-item"><a href="auth-signin.html" data-toggle="tooltip" title="Logout" class="text-danger"><i class="feather icon-power"></i></a></li>
+							<li class="list-inline-item"><a href="{{ url('/user-profile') }}" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
+							<li class="list-inline-item"><a href="{{ url('/auth-signin') }}" data-toggle="tooltip" title="Logout" class="text-danger"><i class="feather icon-power"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -137,67 +126,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right notification">
-                            <div class="noti-head">
-                                <h6 class="d-inline-block m-b-0">Notifications</h6>
-                                <div class="float-right">
-                                    <a href="#!" class="m-r-10">mark as read</a>
-                                    <a href="#!">clear all</a>
-                                </div>
-                            </div>
-                            <ul class="noti-body">
-                                <li class="n-title">
-                                    <p class="m-b-0">NEW</p>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
-                                            <p>New ticket Added</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="n-title">
-                                    <p class="m-b-0">EARLIER</p>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
-                                            <p>Prchace New Theme and make payment</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
-                                            <p>currently login</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
-                                            <p>Prchace New Theme and make payment</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="noti-footer">
-                                <a href="#!">show all</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                
                 <li>
                     <div class="dropdown drp-user">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -205,7 +134,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="{{ asset('able/images/user/avatar-2.jpg') }}" class="img-radius" alt="User-Profile-Image">
                                 <span>John Doe</span>
                                 <a href="auth-signin.html" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>
@@ -214,7 +143,7 @@
                             <ul class="pro-body">
                                 <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
                                 <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Log out</a></li>
                             </ul>
                         </div>
                     </div>
@@ -233,12 +162,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">To Do</h5>
+                            <h5 class="m-b-10">Page Title</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">To Do</a></li>
-                            <li class="breadcrumb-item"><a href="#!">To Do</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Subsection</a></li>
                         </ul>
                     </div>
                 </div>
@@ -247,139 +175,10 @@
         <!-- [ breadcrumb ] end -->
         <!-- [ Main Content ] start -->
         <div class="row">
-            <!-- [ Todo-list ] start -->
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>To Do Card List</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="input-group mb-3">
-                            <input type="text" name="task-insert" class="form-control" placeholder="Create your task list" required="">
-                            <div class="input-group-append">
-                                <button class="btn waves-effect waves-light btn-secondary" id="create-task">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <section id="task-container">
-                            <ul id="task-list">
-                                <li>
-                                    <p>Lorem Ipsum Dolor Sit Amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem Ipsum Dolor Sit Amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem Ipsum Dolor Sit Amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem Ipsum Dolor Sit Amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem Ipsum Dolor Sit Amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem Ipsum Dolor Sit Amet</p>
-                                </li>
-                            </ul>
-                            <div class="text-center">
-                                <button id="clear-all-tasks" class="btn waves-effect waves-light btn-primary m-b-0" type="button">Clear All Tasks</button>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <!-- [ Todo-list ] end -->
-            <!-- [ Todo-list1 ] start -->
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>To Do List</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="input-group mb-3">
-                            <input type="text" name="task-insert" class="form-control add_task_todo" placeholder="Create your task list" required="">
-                            <div class="input-group-append">
-                                <button class="btn waves-effect waves-light btn-secondary" id="add-btn">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="new-task">
-                            <div class="to-do-list mb-3">
-                                <div class="d-inline-block">
-                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <span class="custom-control-label">Lorem Ipsum Dolor Sit Amet</span>
-                                    </label>
-                                </div>
-                                <div class="float-right"><a onclick="delete_todo(1);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
-                            </div>
-                            <div class="to-do-list mb-3">
-                                <div class="d-inline-block">
-                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                        <span class="custom-control-label">Industry's standard dummy text ever since the 1500s</span>
-                                    </label>
-                                </div>
-                                <div class="float-right"><a onclick="delete_todo(2);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
-                            </div>
-                            <div class="to-do-list mb-3">
-                                <div class="d-inline-block">
-                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                        <span class="custom-control-label">The point of using Lorem Ipsum is that it has a more-or-less </span>
-                                    </label>
-                                </div>
-                                <div class="float-right"><a onclick="delete_todo(3);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
-                            </div>
-                            <div class="to-do-list mb-3">
-                                <div class="d-inline-block">
-                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                        <span class="custom-control-label">Contrary to popular belief</span>
-                                    </label>
-                                </div>
-                                <div class="float-right"><a onclick="delete_todo(4);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
-                            </div>
-                            <div class="to-do-list mb-3">
-                                <div class="d-inline-block">
-                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                        <span class="custom-control-label">There are many variations of passages of Lorem Ipsum</span>
-                                    </label>
-                                </div>
-                                <div class="float-right"><a onclick="delete_todo(5);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
-                            </div>
-                            <div class="to-do-list mb-3">
-                                <div class="d-inline-block">
-                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                        <span class="custom-control-label">Sed ut perspiciatis unde omnis iste natus</span>
-                                    </label>
-                                </div>
-                                <div class="float-right"><a onclick="delete_todo(6);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
-                            </div>
-                            <div class="to-do-list mb-3">
-                                <div class="d-inline-block">
-                                    <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck7">
-                                        <span class="custom-control-label"> must explain to you how all this mistaken idea</span>
-                                    </label>
-                                </div>
-                                <div class="float-right"><a onclick="delete_todo(7);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- [ Todo-list1 ] end -->
-            <!-- [ Todo-modal ] start -->
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>To Do List in Modal</h5>
+                        <h5>Card Title</h5>
                     </div>
                     <div class="card-body">
                         <div class="tasks-widget">
@@ -387,7 +186,7 @@
                                 <div class="d-inline-block">
                                     <label class="check-task custom-control custom-checkbox d-flex justify-content-center">
                                         <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                        <span class="custom-control-label">Lorem Ipsum Dolor Sit Amet</span>
+                                        <span class="custom-control-label">Task 1</span>
                                     </label>
                                 </div>
                                 <div class="float-right"><a onclick="delete_todo(8);" href="#!" class="delete_todolist"><i class="far fa-trash-alt"></i></a></div>
@@ -438,6 +237,7 @@
 
     </div>
 </section>
+
 <!-- [ modal ] start -->
 <div class="modal fade" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -474,6 +274,20 @@
 <!-- [ Main Content ] end -->
 
 <!-- Required Js -->
+
+
+{{-- <script type="text/javascript" src="{{ URL::asset('assets/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/bootstrap.min.js') }}"></script> --}}
+
+<script src="{{ asset('able/js/vendor-all.min.js') }}"></script>
+<script src="{{ asset('able/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{ asset('able/js/ripple.js') }}"></script>
+<script src="{{ asset('able/js/pcoded.min.js') }}"></script>
+<script src="{{ asset('able/js/menu-setting.min.js') }}"></script>
+
+<script src="{{ asset('able/js/pages/todo.js') }}"></script>
+{{-- <script src="{{ asset('able/js/plugins/sweetalert.min.js') }}"></script>
+<script src="{{ asset('able/js/pages/ac-alert.js') }}"></script> --}}
 
 </body>
 </html>

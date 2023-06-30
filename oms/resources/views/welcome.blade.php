@@ -47,12 +47,15 @@
                 <option value="B">B</option>
             </select><br><br>
 
+            <label for="hrs_remaining">Year Level:</label>
+            <input type="number" name="year_level" value="3" required><br><br>
+
             <label for="gender">Gender:</label>
             <select name="gender">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select><br><br>
-
+            
             <label for="hrs_remaining">Hours Remaining:</label>
             <input type="number" name="hrs_remaining" value="240" required><br><br>
 
@@ -111,7 +114,3 @@
     @else
         <p>There are no blog posts</p>  
     @endunless
-
-   
-
-

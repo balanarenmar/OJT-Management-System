@@ -21,15 +21,29 @@ use App\Http\Controllers\UserController;
 //a INITIAL VIEW. root
 Route::get('/', function () {
     //second argument can be an array containing any values
-    return view('index', [
-        'heading' => 'web.php Heading'
-    ]);
+    return view('landing');
 });
+
+Route::post('/land', [UserController::class, 'registerRequest']);
+
+Route::get('/land', function () {
+    //second argument can be an array containing any values
+    return view('landing');
+});
+
+// Route::get('/', function () {
+//     //second argument can be an array containing any values
+//     return view('index', [
+//         'heading' => 'web.php Heading'
+//     ]);
+// });
 
 Route::get('/test', function () {
     //second argument can be an array containing any values
     return view('index2');
 });
+
+
 
 Route::get('/addstudent', function () {
     //second argument can be an array containing any values
@@ -55,10 +69,13 @@ Route::get('/register.student', function () {
 
 
 
-// ROUTE FOR REGISTERING A USER (students)
+// ROUTE FOR REGISTERING A USER
 Route::post('/registerStudent', [UserController::class, 'registerStudent']);
-
 Route::post('/registerAdmin', [UserController::class, 'registerAdmin']);
+
+
+
+
 
 
 Route::get('/blogpost/{id}', function ($id) {
