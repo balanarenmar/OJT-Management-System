@@ -31,8 +31,7 @@ class UserController extends Controller
                 'course' => 'required',
                 'block' => 'required',
                 'year_level' => 'required',
-                'gender' => 'required',
-                'hrs_remaining' =>'required', 'integer'
+                'gender' => 'required'
             ]
         );
 

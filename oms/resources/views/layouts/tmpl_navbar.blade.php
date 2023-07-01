@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="icon" href={{ asset('able/images/favicon.ico') }} type="image/x-icon">
+    <link rel="icon" href={{ asset('able/images/OMS.svg') }} type="image/x-icon">
 
     <link rel="stylesheet" href={{ asset('able/css/able.css') }}>
 

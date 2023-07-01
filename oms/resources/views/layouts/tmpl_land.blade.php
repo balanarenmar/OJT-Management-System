@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href={{ asset('css/front.css') }}>
   
+  <link rel="icon" href={{ asset('able/images/OMS.svg') }} type="image/x-icon">
 </head>
 <body>
 
@@ -33,6 +34,13 @@
   <script src="{{ asset('able/js/vendor-all.min.js') }}"></script>
   <script src="{{ asset('able/js/ripple.js') }}"></script>
   <script src="{{ asset('able/js/pcoded.min.js') }}"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{{ asset('able/js/plugins/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('able/js/pages/form-validation') }}"></script>
 
 </body>
 </html>

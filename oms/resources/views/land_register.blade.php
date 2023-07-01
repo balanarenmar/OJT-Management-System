@@ -7,95 +7,92 @@
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 20px;">
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 mb-md-5">OJT Registration Form</h3>
+            <h3 class="mb-4 mb-md-5 text-center">OJT Registration Form</h3>
 
-            <form action="/registerStudent" method="POST">
+            <form action="/registerRequest" method="POST">
               @csrf
 
-              <input type="hidden" name="account_id" value="$sas">
+              <input type="hidden" name="account_id" value="1234-1234-12345">
               <input type="hidden" name="account_type" value="student">
 
               <div class="row">
                 <div class="col-md-5 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="lastName">First Name</label>
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
+                    <label class="form-label" for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" class="form-control form-control-lg" required/>
                   </div>
                 </div>
                 <div class="col-md-2 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="lastName">Middle I.</label>
-                    <input type="text" id="lastName" class="form-control form-control-lg " maxlength="1" />
+                    <label class="form-label" for="middle_initial">Middle I.</label>
+                    <input type="text" id="middle_initial" name="middle_initial" class="form-control form-control-lg " maxlength="1" required/>
                   </div>
                 </div>
                 <div class="col-md-5 mb-4">
                   <div class="form-outline">                    
-                    <label class="form-label" for="lastName">Last Name</label>
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
+                    <label class="form-label" for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" class="form-control form-control-lg" required/>
                   </div>
                 </div>
               </div>
-                
 
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div class="form-outline datepicker w-100">
-                    <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                    <label for="birthdayDate" class="form-label">Birthday</label>
+              <div class="row w-100">
+                <div class="col-md-6 mb-4 pl-0">
+                  <div class="form-outline">
+                    <label class="form-label" for="course">Course</label>
+                    <select name="course" id="course" class="form-control form-control-md">
+                      <option value="BS Information Technology">BS Information Technology</option>
+                      <option value="BS Computer Science" selected>BS Computer Science</option>
+                      <option value="BS Meteorology">BS Meteorology</option>
+                      <option value="BS Biology">BS Biology</option>
+                      <option value="BS Chemistry">BS Chemistry</option>
+                    </select>
                   </div>
-
                 </div>
-                <div class="col-md-6 mb-4">
-
-                  <h6 class="mb-2 pb-1">Gender: </h6>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                      value="option1" checked />
-                    <label class="form-check-label" for="femaleGender">Female</label>
+                <div class="col-md-3 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="block">Block</label>
+                    <select name="block" id="block" class="form-control form-control-md">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                    </select>
                   </div>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                      value="option2" />
-                    <label class="form-check-label" for="maleGender">Male</label>
+                </div>
+                <div class="col-md-3 mb-4 pr-0" >
+                  <div class="form-outline">                    
+                    <label class="year_level" for="year_level">Year Level</label>
+                    <input type="number" name="year_level" value="3" min="3" max="9"  class="form-control form-control-md" required>
                   </div>
-
+                </div>
+              </div>
+              
+              <div class="col-md-12 mb-4 pl-0 pr-0">
+                <label for="gender">Gender:</label>
+                <select name="gender" class="form-control form-control-md">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+              </div>
+                {{--  --}}
+              
+              <div class="col-md-12 mb-4 pl-0 pr-0">
+                <div class="form-outline">
+                  <label class="form-label" for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control form-control-md" required/>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                    <label class="form-label" for="emailAddress">Email</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                    <label class="form-label" for="phoneNumber">Phone Number</label>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="row">
-
-                <div class="col-md-6 mb-4 pb-2">
-                  <div class="form-outline">
-                    <input type="password" id="password" class="form-control form-control-lg" />
-                    <label class="form-label" for="phoneNumber">Password</label>
+              <div class="row w-100 " >
+                <div class="col-lg-6 mb-4 pb-2 pl-0">
+                  <div class="form-outline">                    
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-control form-control-md" />
                   </div>
                 </div>
-                <div class="col-md-6 mb-4 pb-2">
-                  <div class="form-outline">
-                    <input type="password" id="password" class="form-control form-control-lg" />
-                    <label class="form-label" for="phoneNumber">Confirm Password</label>
+                <div class="col-lg-6 mb-4 pb-2 pr-0">
+                  <div class="form-outline">                    
+                    <label class="form-label" for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" class="form-control form-control-md" />
                   </div>
                 </div>
               </div>
@@ -110,5 +107,34 @@
       </div>
     </div>
   </div>
+
+
+
+  <div class="card-body">
+    <form id="validation-form123" action="#!">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="validation-password" placeholder="Password">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="form-label">Confirm password</label>
+                    <input type="password" class="form-control" name="validation-password-confirmation" placeholder="Confirm password">
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
+
 </section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{{ asset('able/js/plugins/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('able/js/pages/form-validation') }}"></script>
+
 @endsection
