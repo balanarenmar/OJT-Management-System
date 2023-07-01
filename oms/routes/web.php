@@ -21,12 +21,10 @@ use App\Http\Controllers\AuthController;
 
 //a INITIAL VIEW. root
 Route::get('/', function () {
-    //second argument can be an array containing any values
     return view('landing');
 });
 
 Route::post('/checkAccount', [AuthController::class, 'checkAccount']);
-
 
 Route::get('/register', [AuthController::class, 'showRegistration'])->name('register');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -34,7 +32,7 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 
 
 Route::get('/test', function () {
-    //second argument can be an array containing any values
+    //second argument can be an array containing any values the view may need
     return view('index2');
 });
 
@@ -54,15 +52,8 @@ Route::get('/omslogin', function () {
 });
 
 
-Route::get('/register.student', function () {
-    //second argument can be an array containing any values
-    return view('welcome', [
-        'heading' => 'web.php Heading',
-        'blog_posts' => BlogPost::all() //retrieves all blog posts from the model
-    ]);
-});
-
-
+// ROUTE FOR REQUESTING REGISTRATION
+Route::post('/registerRequest', [UserController::class, 'registerRequest']);
 
 // ROUTE FOR REGISTERING A USER
 Route::post('/registerStudent', [UserController::class, 'registerStudent']);

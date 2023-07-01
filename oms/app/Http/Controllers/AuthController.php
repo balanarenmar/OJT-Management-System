@@ -11,7 +11,7 @@ class AuthController extends Controller
 {   
     public function showRegistration()
     {
-        return view('oms_register');
+        return view('land_register');
     }
 
     public function showLogin()

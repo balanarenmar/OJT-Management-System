@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.tmpl_navbar')
 @section('content')
     @auth
         <p>REGISTEreD</p>
@@ -14,3 +14,5 @@
 
     @endauth
 @endsection
+
+{{-- This view uses a layout to load the header, nav-bar, and main content  --}}

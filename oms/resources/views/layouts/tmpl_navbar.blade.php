@@ -274,8 +274,6 @@
 <!-- [ Main Content ] end -->
 
 <!-- Required Js -->
-
-
 {{-- <script type="text/javascript" src="{{ URL::asset('assets/js/jquery.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('assets/js/bootstrap.min.js') }}"></script> --}}
 

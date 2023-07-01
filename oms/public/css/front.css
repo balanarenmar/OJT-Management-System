@@ -49,6 +49,7 @@ body::after {
     .header-content {
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     .header-content .flex-grow-1 {
@@ -79,12 +80,15 @@ body::after {
     flex: 1;
   }
   
-form {
-  padding-top: 15%;
+form {  
   width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+form.student-id {
+  padding-top: 15%;
 }
 
 .active-input::placeholder {
@@ -94,4 +98,14 @@ form {
 img.min-size-110 {
     min-width: 110px;
     height: auto;
+  }
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+  top: 13px;
   }
