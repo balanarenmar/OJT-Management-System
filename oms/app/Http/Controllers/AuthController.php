@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\RegisterRequest;
 
 class AuthController extends Controller
 {   
@@ -19,9 +20,13 @@ class AuthController extends Controller
         return view('oms_login');
     }
 
-    //check by account id, if student is registered or not
-    public function checkAccount(Request $request)
+    public function create(): View
     {
+        return view('post.create');
+    }
+
+    //check by account id, if student is registered or not
+    public function checkAccount(Request $request){
         $studentNumber = $request->validate(
             ['account_id' => ['required', 'min:15', 'max:15']]
         );
@@ -38,6 +43,5 @@ class AuthController extends Controller
         }
         dd($user);
     }
-
 
 }

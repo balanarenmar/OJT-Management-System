@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Models\RegisterRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,15 +54,11 @@ Route::get('/omslogin', function () {
 
 
 // ROUTE FOR REQUESTING REGISTRATION
-Route::post('/registerRequest', [UserController::class, 'registerRequest']);
+Route::post('/registerRequest', [RegisterRequestController::class, 'store'])->name('registerRequest.store');
 
 // ROUTE FOR REGISTERING A USER
 Route::post('/registerStudent', [UserController::class, 'registerStudent']);
 Route::post('/registerAdmin', [UserController::class, 'registerAdmin']);
-
-
-
-
 
 
 Route::get('/blogpost/{id}', function ($id) {

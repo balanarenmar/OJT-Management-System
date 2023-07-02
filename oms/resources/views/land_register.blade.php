@@ -9,7 +9,7 @@
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 mb-md-5 text-center">OJT Registration Form</h3>
 
-            <form action="/registerRequest" method="POST">
+            <form action="{{ route('registerRequest.store') }}" method="POST" id="registerRequest">
               @csrf
 
               <input type="hidden" name="account_id" value="1234-1234-12345">
@@ -73,7 +73,6 @@
                     <option value="Female">Female</option>
                 </select>
               </div>
-                {{--  --}}
               
               <div class="col-md-12 mb-4 pl-0 pr-0">
                 <div class="form-outline">
@@ -86,17 +85,21 @@
                 <div class="col-lg-6 mb-4 pb-2 pl-0">
                   <div class="form-outline">                    
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" class="form-control form-control-md" />
+                    <input type="password" id="password" name="password" class="form-control form-control-md" />
                   </div>
                 </div>
                 <div class="col-lg-6 mb-4 pb-2 pr-0">
                   <div class="form-outline">                    
                     <label class="form-label" for="confirm_password">Confirm Password</label>
-                    <input type="password" id="confirm_password" class="form-control form-control-md" />
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control form-control-md" />
                   </div>
+                        <!-- Error message -->
+                      <div class="invalid-feedback" id="password-error-message">
+                        Passwords do not match.
+                      </div>
                 </div>
               </div>
-
+              
               <div class="pt-2">
                 <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
               </div>
@@ -108,33 +111,28 @@
     </div>
   </div>
 
-
-
-  <div class="card-body">
-    <form id="validation-form123" action="#!">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="validation-password" placeholder="Password">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-label">Confirm password</label>
-                    <input type="password" class="form-control" name="validation-password-confirmation" placeholder="Confirm password">
-                </div>
-            </div>
-        </div>
-    </form>
-  </div>
-
+  </form>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="{{ asset('able/js/plugins/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('able/js/pages/form-validation') }}"></script>
+@endsection
+
+@section('scripts')
+<script>
+  $(document).ready(function() {
+    $('input[name="confirm_password"]').keyup(function() {
+      var password = $('input[name="password"]').val();
+      var confirm_password = $(this).val();
+
+      if (password !== confirm_password) {
+        // Set an error message or apply some visual indication
+        $(this).addClass('is-invalid');
+      } else {
+        // Clear the error message and remove any visual indication
+        $(this).removeClass('is-invalid');
+      }
+    });
+  });
+</script>
+
 
 @endsection
