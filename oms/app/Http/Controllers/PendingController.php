@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use App\Models\RegisterRequest;
+use App\Models\Pending;
 use App\Http\Controllers\Controller;
 
-class RegisterRequestController extends Controller
+class PendingController extends Controller
 {
     public function create(): View
     {
         return view('post.create');
     }
 
-    public function store(Request $request) {
+    public function registerRequest(Request $request) {
         $incomingFields = $request->validate(
             [
                 'account_id' => ['required', 'min:15', 'max:15'],
@@ -31,9 +31,11 @@ class RegisterRequestController extends Controller
             ]
         );
 
-        $registerRequest = new RegisterRequest();
-        $registerRequest->fill($incomingFields);
-        $registerRequest->save();
+        // $registerRequest = new Pending();
+        // $registerRequest->fill($incomingFields);
+        // $registerRequest->save();
+
+        Pending::create($incomingFields);
 
         return redirect('/request-sent');
     }

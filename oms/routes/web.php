@@ -4,9 +4,9 @@ use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-use App\Models\RegisterRequest;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PendingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,6 @@ use App\Models\RegisterRequest;
 |
 */
 
-
 //a INITIAL VIEW. root
 Route::get('/', function () {
     return view('landing');
@@ -27,8 +26,8 @@ Route::get('/', function () {
 
 Route::post('/checkAccount', [AuthController::class, 'checkAccount']);
 
-Route::get('/register', [AuthController::class, 'showRegistration'])->name('register');
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::get('/register/{account_id}', [AuthController::class, 'showRegistration'])->name('register');
+Route::get('/login/{account_id}', [AuthController::class, 'showLogin'])->name('login');
 
 
 
@@ -54,7 +53,8 @@ Route::get('/omslogin', function () {
 
 
 // ROUTE FOR REQUESTING REGISTRATION
-Route::post('/registerRequest', [RegisterRequestController::class, 'store'])->name('registerRequest.store');
+Route::post('/pending', [PendingController::class, 'registerRequest']);
+
 
 // ROUTE FOR REGISTERING A USER
 Route::post('/registerStudent', [UserController::class, 'registerStudent']);
@@ -77,8 +77,7 @@ Route::get('/hello', function () {
 
 Route::get('/posts/{id}', function($id) {
     //ddd($id);                              //debugging
-    return response('Post ' . $id);
-    
+    return response('Post' . $id);
     //return 'This is post number ' . $id;
 })->where('id', '[0-9]+');
 

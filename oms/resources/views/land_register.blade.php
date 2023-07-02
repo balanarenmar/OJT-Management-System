@@ -9,10 +9,12 @@
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 mb-md-5 text-center">OJT Registration Form</h3>
 
-            <form action="{{ route('registerRequest.store') }}" method="POST" id="registerRequest">
+            <form action="/pending" method="POST" id="registerRequest">
               @csrf
 
-              <input type="hidden" name="account_id" value="1234-1234-12345">
+              <p>Account ID: {{ $accountId }}</p>
+
+              <input type="hidden" name="account_id" value="{{ $accountId }}">
               <input type="hidden" name="account_type" value="student">
 
               <div class="row">

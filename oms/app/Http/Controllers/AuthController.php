@@ -10,14 +10,16 @@ use App\Models\RegisterRequest;
 
 class AuthController extends Controller
 {   
-    public function showRegistration()
-    {
-        return view('land_register');
+    public function showRegistration(Request $request)
+    {   
+        $accountId = $request->input('account_id');
+        return view('land_register', compact('accountId'));
     }
 
-    public function showLogin()
+    public function showLogin(Request $request)
     {
-        return view('oms_login');
+        $accountId = $request->input('account_id');
+        return view('oms_login', compact('accountId'));
     }
 
     public function create(): View
@@ -28,7 +30,7 @@ class AuthController extends Controller
     //check by account id, if student is registered or not
     public function checkAccount(Request $request){
         $studentNumber = $request->validate(
-            ['account_id' => ['required', 'min:15', 'max:15']]
+            ['account_id' => ['required', 'regex:/^\d{4}-\d{4}-\d{5}$/']]
         );
 
         // Check if the student number already exists in the 'users' table
@@ -36,12 +38,12 @@ class AuthController extends Controller
 
         if ($user) {
             // Student number exists
-            return redirect('login')->with('message', 'Student number already exists. Please login.');
+            return redirect()->route('login',  ['account_id' => $studentNumber['account_id']])->with('message', 'Student number already exists. Please login.');
         } else {
             // Student number does not exist
-            return redirect('register')->with('message', 'Student number is available. Please register.');
+            return redirect()->route('register',  ['account_id' => $studentNumber['account_id']])->with('message', 'Student number is available. Please register.');
+            //return redirect('register')->with('message', 'Student number is available. Please register.');
         }
-        dd($user);
+        //dd($user);
     }
-
 }

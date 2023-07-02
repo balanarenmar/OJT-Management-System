@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('register_requests', function (Blueprint $table) {
+        Schema::create('pendings', function (Blueprint $table) {
             $table->id();
             $table->string('account_id', 32);
             $table->string('first_name', 32);
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('register_requests');
+        Schema::dropIfExists('pendings');
     }
 };

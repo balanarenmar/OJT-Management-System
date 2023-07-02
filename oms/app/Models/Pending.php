@@ -6,7 +6,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class RegisterRequest extends Model
+class Pending extends Model
 {
     use HasApiTokens, HasFactory;
 

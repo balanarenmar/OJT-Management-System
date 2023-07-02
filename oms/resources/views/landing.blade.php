@@ -19,7 +19,7 @@
               <div class="row">
                 <!-- this is the text field and button area -->
                 <div class="col-sm">
-                  <input class="form-control form-control-lg @error('account_id') is-invalid @enderror" id="account_id" name="account_id" type="text" placeholder="Student Number"  maxlength="15" required>
+                  <input class="form-control form-control-lg @error('account_id') is-invalid @enderror" pattern="[0-9]+-[0-9]+-[0-9]+" id="account_id" name="account_id" type="text" placeholder="Student Number"  maxlength="15" required>
                   @error('account_id')
                   <span class="invalid-feedback" role="alert">
                       <strong>Please enter a valid Student ID</strong>
