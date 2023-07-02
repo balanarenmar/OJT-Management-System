@@ -81,4 +81,8 @@ class UserController extends Controller
         $adminController->createAdmin($incomingFields);
         return redirect('/admin');
     }
+
+    
+
+
 }

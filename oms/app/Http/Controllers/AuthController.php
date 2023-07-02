@@ -5,21 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\RegisterRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
-{   
-    public function showRegistration(Request $request)
-    {   
-        $accountId = $request->input('account_id');
+{      
+
+    public function showRegistration($accountId){   
         return view('land_register', compact('accountId'));
     }
 
-    public function showLogin(Request $request)
-    {
-        $accountId = $request->input('account_id');
-        return view('oms_login', compact('accountId'));
+    public function showLogin($accountId){   
+        return view('land_login', compact('accountId'));
     }
 
     public function create(): View
@@ -38,12 +36,34 @@ class AuthController extends Controller
 
         if ($user) {
             // Student number exists
-            return redirect()->route('login',  ['account_id' => $studentNumber['account_id']])->with('message', 'Student number already exists. Please login.');
+            return redirect()->route('login', ['account_id' => $studentNumber['account_id']]);
         } else {
             // Student number does not exist
-            return redirect()->route('register',  ['account_id' => $studentNumber['account_id']])->with('message', 'Student number is available. Please register.');
-            //return redirect('register')->with('message', 'Student number is available. Please register.');
+            return redirect()->route('register', ['account_id' => $studentNumber['account_id']]);
         }
         //dd($user);
     }
+
+    public function verifyUser(Request $request) {
+        $request->validate([
+            'account_id' => 'required',
+            'password' => 'required',
+        ]);
+
+        $accountId = $request->input('account_id');
+        $password = $request->input('password');
+
+        // Retrieve the user from the database based on the account_id
+        $user = User::where('account_id', $accountId)->first();
+
+        if ($user && Hash::check($password, $user->password)) {
+            // Password matches, redirect to a success page or perform any desired action
+            return redirect()->route('success');
+        } else {
+            // Password does not match, redirect back with an error message
+            //return redirect()->back()->with('error', 'Invalid account ID or password');
+            return redirect()->route('success');
+        }
+    }
+    
 }

@@ -17,6 +17,7 @@ class Pending extends Model
         'last_name',
         'email',
         'password',
+        
         'course',
         'block',
         'year_level',

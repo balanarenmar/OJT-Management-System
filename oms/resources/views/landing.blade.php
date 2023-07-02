@@ -14,7 +14,7 @@
         <div class="mt-4">
           <div class="d-flex">
             
-            <form class="form student-id" action="/checkAccount" method="post">
+            <form class="form student-id" action="/checkAccount" method="POST">
               @csrf
               <div class="row">
                 <!-- this is the text field and button area -->

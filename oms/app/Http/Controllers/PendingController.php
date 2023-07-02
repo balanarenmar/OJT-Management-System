@@ -14,28 +14,46 @@ class PendingController extends Controller
         return view('post.create');
     }
 
-    public function registerRequest(Request $request) {
+    //function to create a Registration Request
+    protected function createPending(array $data) {
+        return Pending::create([
+            'account_id' => $data['account_id'],
+            'first_name' => $data['first_name'],
+            'middle_initial' => $data['middle_initial'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+
+            'course' => $data['course'],
+            'block' => $data['block'],
+            'year_level' =>$data['year_level'],
+            'gender' => $data['gender']
+        ]);
+    }
+
+    public function registerPending(Request $request) {
+        
         $incomingFields = $request->validate(
             [
-                'account_id' => ['required', 'min:15', 'max:15'],
+                'account_id' => ['required', 'size:15'],
                 'first_name' => ['required', 'min:1', 'max:32'],
                 'middle_initial' => ['max:1', 'nullable'],
                 'last_name' => ['required', 'min:1', 'max:32'],
-                'email' => ['required', 'email', 'min:3', 'max:64'],
-                'password' => ['required', 'min:8', 'max:32'],
-
                 'course' => 'required',
                 'block' => 'required',
-                'year_level' => ['required', 'min:3', 'max:9'],
-                'gender' => 'required'
+                'year_level' => ['required', 'numeric', 'between:3,9'],
+                'gender' => 'required',
+                'email' => ['required', 'email', 'min:3', 'max:64'],
+                'password' => ['required', 'min:8', 'max:32'],
+                'confirm_password' => ['required', 'same:password'],
             ]
         );
+        
+        //dd($incomingFields);
 
-        // $registerRequest = new Pending();
-        // $registerRequest->fill($incomingFields);
-        // $registerRequest->save();
-
-        Pending::create($incomingFields);
+        //create registration request in database
+        $this->createPending($incomingFields);
+        //dd($incomingFields);
 
         return redirect('/request-sent');
     }

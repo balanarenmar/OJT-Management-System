@@ -19,15 +19,27 @@ use App\Http\Controllers\PendingController;
 |
 */
 
-//a INITIAL VIEW. root
+//INITIAL VIEW.
 Route::get('/', function () {
     return view('landing');
 });
 
 Route::post('/checkAccount', [AuthController::class, 'checkAccount']);
 
+
+// form route for login and registration
+Route::post('/registerStudent', [UserController::class, 'registerStudent']);
+Route::post('/registerAdmin', [UserController::class, 'registerAdmin']);
+
+// redirect route for login and registration
+
 Route::get('/register/{account_id}', [AuthController::class, 'showRegistration'])->name('register');
 Route::get('/login/{account_id}', [AuthController::class, 'showLogin'])->name('login');
+
+
+// ROUTE FOR REQUESTING login and registration
+Route::post('/requestLogin', [AuthController::class, 'verifyUser']);
+Route::post('/requestPending', [PendingController::class, 'registerPending']);
 
 
 
@@ -35,8 +47,6 @@ Route::get('/test', function () {
     //second argument can be an array containing any values the view may need
     return view('index2');
 });
-
-
 
 Route::get('/addstudent', function () {
     //second argument can be an array containing any values
@@ -50,16 +60,6 @@ Route::get('/addstudent', function () {
 Route::get('/omslogin', function () {
     return view('oms_login');
 });
-
-
-// ROUTE FOR REQUESTING REGISTRATION
-Route::post('/pending', [PendingController::class, 'registerRequest']);
-
-
-// ROUTE FOR REGISTERING A USER
-Route::post('/registerStudent', [UserController::class, 'registerStudent']);
-Route::post('/registerAdmin', [UserController::class, 'registerAdmin']);
-
 
 Route::get('/blogpost/{id}', function ($id) {
     return view('blogpost', [

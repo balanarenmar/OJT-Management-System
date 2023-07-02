@@ -48,7 +48,7 @@
             </select><br><br>
 
             <label for="hrs_remaining">Year Level:</label>
-            <input type="number" name="year_level" value="3" required><br><br>
+            <input type="number" name="year_level" value="3" min="3" max="9" required><br><br>
 
             <label for="gender">Gender:</label>
             <select name="gender">
