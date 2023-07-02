@@ -41,6 +41,8 @@ Route::get('/login/{account_id}', [AuthController::class, 'showLogin'])->name('l
 Route::post('/requestLogin', [AuthController::class, 'verifyUser']);
 Route::post('/requestPending', [PendingController::class, 'registerPending']);
 
+Route::get('/home/admin/{account_id}', [AuthController::class, 'showAdminHome'])->name('success.admin');
+Route::get('/home/student/{account_id}', [AuthController::class, 'showStudentHome'])->name('success.student');
 
 
 Route::get('/test', function () {
