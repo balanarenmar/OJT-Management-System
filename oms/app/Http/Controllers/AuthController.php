@@ -47,33 +47,16 @@ class AuthController extends Controller
 
     public function verifyUser(Request $request) {
         //dd($request->all());
-        $incomingFields = $request->validate([
+        $request->validate([
             'account_id' => ['required', 'regex:/^\d{4}-\d{4}-\d{5}$/'],
             'password' => ['required', 'min:8', 'max:32'],
         ]);
 
         $accountId = $request->input('account_id');
         $password = $request->input('password');
-        
-        if (auth()->attempt([
-            'account_id' => $incomingFields['account_id'],
-            'password' => $incomingFields['password']])) {
-            $request->session()->regenerate();
-            return redirect('/LOGGEDIN');
-        }
-        
-        return redirect('/NOTLOGGEDIN');
-
 
         // Retrieve the user from the database based on the account_id
         $user = User::where('account_id', $accountId)->first();
-
-
-        // if (auth()->attempt([
-        //     'name' => $incomingFields['loginname'],
-        //     'password' => $incomingFields['loginpassword']])) {
-        //     $request->session()->regenerate();
-        // }
 
 
         if ($user && Hash::check($password, $user->password)) {
@@ -85,7 +68,6 @@ class AuthController extends Controller
             if ($user->account_type === 'admin') {
                 // Account type is "admin"
                 //return view('admin_home', compact('accountId'));  //works but not what we want
-                
                 return redirect()->route('success.admin', ['account_id' => $accountId]);
             } else {    
                 // Account type is "student"
