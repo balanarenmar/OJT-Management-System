@@ -12,18 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->string('company_id')->primary();
+            $table->id('company_id');
             
             $table->enum('company_type', ['university', 'outside'])->default('university');
             $table->string('company_name', 32);
             $table->string('company_address', 32);
             $table->string('company_contact', 32);
 
-            
             $table->string('ojt_supervisor', 64);
             $table->string('department', 32)->nullable();
             $table->integer('deployed_count')->default(0);
-
 
             $table->timestamps();
         });

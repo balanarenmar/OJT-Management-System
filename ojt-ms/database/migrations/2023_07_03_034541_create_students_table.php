@@ -17,6 +17,8 @@ return new class extends Migration
                     ->references('account_id')->on('users')
                     ->onDelete('cascade'); // set cascade deletion
 
+            $table->foreignId('company_id')->constrained('companies');
+
             $table->string('contact')->nullable();
             $table->enum('course', ['BS Information Technology', 'BS Computer Science', 'BS Meteorology', 'BS Biology', 'BS Chemistry']);
             $table->enum('block', ['A', 'B', 'C', 'D']);
@@ -33,7 +35,6 @@ return new class extends Migration
             // $table->foreign('company_id')
             //         ->references('company_id')->on('companies')
             //         ->onDelete('set null');
-
         });
     }
 
