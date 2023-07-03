@@ -26,7 +26,6 @@ Route::get('/', function () {
 
 Route::post('/checkAccount', [AuthController::class, 'checkAccount']);
 
-
 // form route for login and registration
 Route::post('/registerStudent', [UserController::class, 'registerStudent']);
 Route::post('/registerAdmin', [UserController::class, 'registerAdmin']);
@@ -59,10 +58,6 @@ Route::get('/addstudent', function () {
 });
 
 
-Route::get('/omslogin', function () {
-    return view('oms_login');
-});
-
 Route::get('/blogpost/{id}', function ($id) {
     return view('blogpost', [
         'post' => BlogPost::find($id) //retrieves one blog post from the model
@@ -88,3 +83,6 @@ Route::get('/search', function(Request $request) {
     return($request->name . ' ' . $request->city);
     dd($request);
 });
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
