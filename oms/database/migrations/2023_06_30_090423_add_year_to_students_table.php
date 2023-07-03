@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('year_level')->after('gender');
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

@@ -84,5 +84,5 @@ Route::get('/search', function(Request $request) {
     dd($request);
 });
 
-Auth::routes();
+// Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
