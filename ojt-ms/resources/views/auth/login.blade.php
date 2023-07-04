@@ -6,7 +6,7 @@
         <form action={{ route('login') }} method="POST">
             @csrf
             <div class=" auth-content">
-                <img src="assets/images/auth/auth-logo-dark.png" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
+                <img src="{{ asset('images/oms_logo.png') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
                 <h3 class="mb-4 f-w-400">Signin</h3>
                 <div class="form-group mb-3">
                     <label class="floating-label" for="email">Email address</label>

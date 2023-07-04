@@ -18,6 +18,8 @@
         <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
         
 </head>
+<body>
+    
 
     <!-- [ signin-img ] start -->
     <div class="auth-wrapper align-items-stretch aut-bg-img">
@@ -29,8 +31,8 @@
 
                     <h1 class="text-white my-4">BU OJT Management System</h1>
                     <h4 class="text-white font-weight-normal">
-                        Signup to your account and made member of the Able pro Dashboard Template.
-                        <br/>Do not forget to play with live customizer</h4>
+                        Welcome to the OJT Management System (OMS). 
+                        <br/>Register or Login to enter</h4>
                 </div>
             </div>
             </a>
@@ -49,3 +51,6 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+</body>
+</html>

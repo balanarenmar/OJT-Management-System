@@ -31091,7 +31091,7 @@ text.highcharts-drilldown-data-label {
     z-index: 5;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 768px) {
     .auth-wrapper .auth-side-form {
         width: 100%;
         justify-content: center;

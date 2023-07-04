@@ -6,61 +6,42 @@
         <img src="{{ asset('images/oms_logo.png') }}" alt="OMS Logo" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
         <h4 class="mb-3 f-w-400">Sign up</h4>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label class="floating-label" for="account_id">Student ID</label>
-                    <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="" maxlength="32" required>
-                    @error('account_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-md-6">
-            </div>
+        <div class="form-group mb-3">
+            <label class="floating-label" for="account_id">Student ID</label>
+            <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="" maxlength="32" required>
+            @error('account_id')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
-
-        <div class="row">
-            <div class="col-md-8">
-                <div class="form-group mb-3">
-                    <label class="floating-label" for="first_name">First Name</label>
-                    <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="" maxlength="32">
-                    @error('first_name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group mb-3">
-                    <label class="floating-label" for="middle_initial">Middle Initial</label>
-                    <input type="text" class="form-control @error('middle_initial') is-invalid @enderror" id="middle_initial" name="middle_initial" placeholder="" maxlength="1">
-                    @error('middle_initial')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
+        <div class="form-group mb-3">
+            <label class="floating-label" for="first_name">First Name</label>
+            <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="" maxlength="32">
+            @error('first_name')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group mb-3">
-                    <label class="floating-label" for="last_name">Last Name</label>
-                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="" maxlength="32">
-                    @error('last_name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
+        <div class="form-group mb-3">
+            <label class="floating-label" for="middle_initial">Middle Initial</label>
+            <input type="text" class="form-control @error('middle_initial') is-invalid @enderror" id="middle_initial" name="middle_initial" placeholder="" maxlength="1">
+            @error('middle_initial')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
-        
-        
+        <div class="form-group mb-3">
+            <label class="floating-label" for="last_name">Last Name</label>
+            <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="" maxlength="32">
+            @error('last_name')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
         <div class="form-group mb-3">
             <label class="floating-label" for="email">Email address</label>
             <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="">
@@ -87,6 +68,10 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
+        </div>
+        <div class="custom-control custom-checkbox  text-left mb-4 mt-2">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Send me the <a href="#!"> Newsletter</a> weekly.</label>
         </div>
         <button class="btn btn-primary btn-block mb-4">Register</button>
         <div class="text-center">
