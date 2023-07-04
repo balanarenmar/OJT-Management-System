@@ -50,11 +50,17 @@ class UserController extends Controller
 
         //create user in database
         $user = $this->createUser($incomingFields);
-
         $studentController = new StudentController();
         $studentController->createStudent($incomingFields);
         
-        return redirect('/student');
+        if(auth()->login($user)) {
+            
+            return redirect('/addstudent');
+        } else {
+            return redirect('/failed');
+        }
+
+        // return redirect('/student');
     }
 
     //function to register a new admin

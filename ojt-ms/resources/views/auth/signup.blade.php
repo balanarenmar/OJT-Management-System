@@ -34,8 +34,16 @@
 				<img src="assets/images/auth/auth-logo-dark.png" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
 				<h4 class="mb-3 f-w-400">Sign up</h4>
 				<div class="form-group mb-3">
-					<label class="floating-label" for="Username">Username</label>
-					<input type="text" class="form-control" id="Username" placeholder="">
+					<label class="floating-label" for="first_name">First Name</label>
+					<input type="text" class="form-control" id="first_name" name="first_name" placeholder="">
+				</div>
+				<div class="form-group mb-3">
+					<label class="floating-label" for="middle_initial">Middle Initial</label>
+					<input type="text" class="form-control" id="middle_initial" name="middle_initial" placeholder="">
+				</div>
+				<div class="form-group mb-3">
+					<label class="floating-label" for="last_name">Last Name</label>
+					<input type="text" class="form-control" id="last_name" name="last_name" placeholder="">
 				</div>
 				<div class="form-group mb-3">
 					<label class="floating-label" for="Email">Email address</label>

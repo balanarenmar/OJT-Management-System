@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+
     <title>OMS Registration</title>
         <!-- Meta -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -21,24 +22,24 @@
     <!-- [ signin-img ] start -->
     <div class="auth-wrapper align-items-stretch aut-bg-img">
         <div class="flex-grow-1">
+            <a href={{ url('/') }}>
             <div class="h-100 d-md-flex align-items-center auth-side-img">
                 <div class="col-sm-10 auth-content w-auto">
                     <img src="assets/images/auth/auth-logo.png" alt="" class="img-fluid">
 
                     <h1 class="text-white my-4">BU OJT Management System</h1>
-                    <h4 class="text-white font-weight-normal">Signup to your account and made member of the Able pro Dashboard Template.<br/>Do not forget to play with live customizer</h4>
+                    <h4 class="text-white font-weight-normal">
+                        Signup to your account and made member of the Able pro Dashboard Template.
+                        <br/>Do not forget to play with live customizer</h4>
                 </div>
             </div>
+            </a>
+            @yield('content')
 
-            <div class="auth-side-form bg-transparent">
-                <div class=" auth-content">
-                    <a href="{{ route('login') }}" class="f-w-400"><button class="btn btn-primary btn-block mb-4">Login</button></a>
-                    <a href="{{ route('register') }}" class="f-w-400"><button class="btn btn-primary btn-block mb-4">Register</button></a>
-                </div>
-            </div>
         </div>
     </div>
     <!-- [ signin-img ] end -->
+        
 
     <!-- Required Js -->
     <script src="{{ asset('able/js/vendor-all.min.js') }}"></script>

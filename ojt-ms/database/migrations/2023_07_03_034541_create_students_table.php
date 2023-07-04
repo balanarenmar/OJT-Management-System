@@ -17,16 +17,10 @@ return new class extends Migration
                     ->references('account_id')->on('users')
                     ->onDelete('cascade'); // set cascade deletion
 
-            $table->integer('company_id')->unsigned();
-            $table->foreign('company_id')
-                    ->references('company_id')->on('companies');
-
-            // $table->string('company_id');       //Primary and Foreign Key
+            $table->foreignId('company_id')->constrained('companies');
+            // $table->integer('company_id')->unsigned();
             // $table->foreign('company_id')
-            //         ->references('company_id')
-            //         ->on('companies')
-            //         ->onDelete('NO ACTION')
-            //         ->onUpdate('RESTRICT');
+            //         ->references('id')->on('companies');
 
             $table->string('contact')->nullable();
             $table->enum('course', ['BS Information Technology', 'BS Computer Science', 'BS Meteorology', 'BS Biology', 'BS Chemistry']);
@@ -39,11 +33,6 @@ return new class extends Migration
             $table->date('date_completed')->nullable();
             $table->integer('hrs_rendered');
             $table->integer('hrs_remaining');
-
-            // $table->string('company_id')->nullable();
-            // $table->foreign('company_id')
-            //         ->references('company_id')->on('companies')
-            //         ->onDelete('set null');
         });
     }
 

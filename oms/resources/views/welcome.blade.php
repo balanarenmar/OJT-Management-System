@@ -1,6 +1,25 @@
 <!-- Scripts -->
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
+
+
+
+{{-- /addstudent --}}
+
+
+@auth
+        <!--If user is logged in with a cookie and a session-->
+        <p>CONGRATS! You are Logged In.</p>
+        <form action="/logout" method="POST">
+            @csrf
+            <button>Log out</button>
+        </form>
+@else
+        <!--If user is not logged in-->
+        <p>You are not logged in.</p>   
+@endauth
+
+
 <h1>BLOG POSTS</h1>
     {{-- variable from the Route--}}
     <p>{{$heading}}</p>
