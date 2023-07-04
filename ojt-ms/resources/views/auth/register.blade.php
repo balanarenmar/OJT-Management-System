@@ -3,36 +3,71 @@
 
 <div class="auth-side-form">
     <div class=" auth-content">
-        <img src="assets/images/auth/auth-logo-dark.png" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
+        <img src="{{ asset('images/oms_logo.png') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
         <h4 class="mb-3 f-w-400">Sign up</h4>
+
         <div class="form-group mb-3">
             <label class="floating-label" for="account_id">Student ID</label>
-            <input type="text" class="form-control" id="account_id" name="account_id" placeholder="" maxlength="32" required>
-        </div>
-        @error('account_id')
+            <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="" maxlength="32" required>
+            @error('account_id')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-        @enderror
+            @enderror
+        </div>
         <div class="form-group mb-3">
             <label class="floating-label" for="first_name">First Name</label>
-            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="" maxlength="32">
+            <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="" maxlength="32">
+            @error('first_name')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="form-group mb-3">
             <label class="floating-label" for="middle_initial">Middle Initial</label>
-            <input type="text" class="form-control" id="middle_initial" name="middle_initial" placeholder="" maxlength="1">
+            <input type="text" class="form-control @error('middle_initial') is-invalid @enderror" id="middle_initial" name="middle_initial" placeholder="" maxlength="1">
+            @error('middle_initial')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="form-group mb-3">
             <label class="floating-label" for="last_name">Last Name</label>
-            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="" maxlength="32">
+            <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="" maxlength="32">
+            @error('last_name')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="form-group mb-3">
             <label class="floating-label" for="email">Email address</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="">
+            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="">
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="form-group mb-4">
             <label class="floating-label" for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="">
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="form-group mb-4">
+            <label class="floating-label" for="confirm_password">Confirm Password</label>
+            <input type="password" class="form-control @error('confirm_password') is-invalid @enderror" id="confirm_password" name="confirm_password" placeholder="">
+            @error('confirm_password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="custom-control custom-checkbox  text-left mb-4 mt-2">
             <input type="checkbox" class="custom-control-input" id="customCheck1">
