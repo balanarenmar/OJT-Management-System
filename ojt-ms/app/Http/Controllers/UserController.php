@@ -63,24 +63,6 @@ class UserController extends Controller
         return $incomingFields;
     }
 
-    // public function login(Request $request) {
-    //     $loginDetails = $this->validateLogin($request);
-    //     $user = User::where('account_id', $loginDetails['account_id'])->first();
-
-    //     if (auth()->attempt([
-    //         'account_id' => $loginDetails['account_id'],
-    //         'password' => $loginDetails['password']])) {
-    //         $test = $request->session()->regenerate();
-            
-    //         //dd($test);
-    //         return redirect('/success');
-    //     }
-    //     else {
-    //         return redirect('/FAIL');
-    //         //ADD ERROR MESSAGE FOR WRONG PASSWORD, WRONG ACCOUNT ID, ETC.
-    //     }
-    // }
-
     public function login(Request $request) {
         $loginDetails = $this->validateLogin($request);
         $user = User::where('account_id', $loginDetails['account_id'])->first();

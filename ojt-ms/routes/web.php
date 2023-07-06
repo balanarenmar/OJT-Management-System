@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PendingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,9 @@ Route::get('/register', function () {
 //     return view('auth/register');
 // });
 
-Route::post('/register', [App\Http\Controllers\UserController::class, 'addUser'])->name('register');;
-Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');;
-Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');;
+Route::post('/register', [App\Http\Controllers\UserController::class, 'addUser'])->name('register');
+Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
+Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', function () {
     return view('first');
@@ -79,3 +80,6 @@ Route::get('/admin-list', function () {
 Route::get('/company-list', function () {
     return view('admin.company_list');
 })->middleware('auth')->name('company-list');
+
+
+Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('login');;
