@@ -69,26 +69,6 @@ class AuthController extends Controller
             return redirect('/LOGGEDIN');
 
         }
-
-        // if ($user && Hash::check($password, $user->password)) {
-        //     // Log in the user and create a session
-        //     $check = Auth::login($user);
-        //     dd($user);
-        //     dd(Auth::login($user));
-
-        //     if ($user->account_type === 'admin') {
-        //         // Account type is "admin"
-        //         //return view('admin_home', compact('accountId'));  //works but not what we want
-        //         return redirect()->route('success.admin', ['account_id' => $accountId]);
-        //     } else {    
-        //         // Account type is "student"
-        //         //return view('student_home', compact('accountId'));
-        //         return redirect()->route('success.student', ['account_id' => $accountId]);
-        //     }
-        // } else {
-        //     // Password does not match
-        //     return redirect()->back()->with('error', 'Invalid account ID or password');
-        // }
     }
 
 

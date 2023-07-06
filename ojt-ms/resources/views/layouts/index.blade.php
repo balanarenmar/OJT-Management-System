@@ -13,9 +13,6 @@
         <!-- Favicon icon -->
         <link rel="icon" href={{ asset('able/images/OMS.svg') }} type="image/x-icon">
         <link rel="stylesheet" href={{ asset('able/css/able.css') }}>
-
-        {{-- <link rel="dns-prefetch" href="//fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
         
 </head>
 <body>

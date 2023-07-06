@@ -85,20 +85,30 @@
 							<li><a href="layout-dark.html" target="_blank">Dark layout <span class="pcoded-badge badge badge-danger">Hot</span></a></li>
 						</ul>
 					</li>
+
                     <li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Students</span><span class="pcoded-badge badge badge-dashboard"></span></a>
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Students</span></a>
 						<ul class="pcoded-submenu">
 							<li><a href="{{route('student-list')}}">Student List</a></li>
 							<li><a href="{{route('student-add')}}">Add Student</a></li>
 							<li><a href="{{route('student-requests')}}">Registration Requests</a></li>
 						</ul>
 					</li>
+
+                    <li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Admins</span></a>
+						<ul class="pcoded-submenu">
+							<li><a href="{{route('admin-list')}}">Admin List</a></li>
+							<li><a href="{{route('admin-add')}}">Add Admin</a></li>
+						</ul>
+					</li>
+
+
                     <li class="nav-item">
 						<a href="{{route('company-list')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Company List</span></a>
 					</li>
-                    <li class="nav-item">
-						<a href="{{route('admin-list')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Admins</span></a>
-					</li>
+                    
+
 					<li class="nav-item pcoded-hasmenu">
 						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Widget</span><span class="pcoded-badge badge badge-dashboard">100+</span></a>
 						<ul class="pcoded-submenu">

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pending;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use App\Models\Pending;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 
 class PendingController extends Controller
@@ -15,8 +16,8 @@ class PendingController extends Controller
     }
 
     //function to create a Registration Request
-    protected function createPending(Request $data) {
-        $loginDetails = $this->validatePending($data);
+    protected function createPending(Request $pendingDetails) {
+        $data = $this->validatePending($pendingDetails);
         Pending::create([
             'account_id' => $data['account_id'],
             'first_name' => $data['first_name'],
@@ -38,11 +39,11 @@ class PendingController extends Controller
     public function validatePending(Request $request) {
         $incomingFields = $request->validate(
             [
-                'account_id' => ['required', 'size:15'],
+                'account_id' => ['required', 'size:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32'],
                 'middle_initial' => ['max:1', 'nullable'],
                 'last_name' => ['required', 'min:1', 'max:32'],
-                'contact' => ['required', 'min:11', 'max:11'],
+                'contact' => ['required', 'min:11', 'max:11', 'regex:/^[0-9]+$/'],
                 'course' => 'required',
                 'block' => 'required',
                 'gender' => 'required',
@@ -52,7 +53,7 @@ class PendingController extends Controller
                 'confirm_password' => ['required', 'same:password'],
             ]
         );
-
+        return $incomingFields;
     }
 
 }

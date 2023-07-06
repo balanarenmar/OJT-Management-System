@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PendingController;
 
 /*
@@ -31,7 +32,6 @@ Route::get('/old', function () {
 Route::get('/login', function () {
     return view('auth/login');
 })->middleware('guest');
-
 
 
 Route::get('/register', function () {
@@ -77,9 +77,15 @@ Route::get('/admin-list', function () {
     return view('admin.admin_list');
 })->middleware('auth')->name('admin-list');
 
+Route::get('/admin-add', function () {
+    return view('admin.admin_add');
+})->middleware('auth')->name('admin-add');
+
 Route::get('/company-list', function () {
     return view('admin.company_list');
 })->middleware('auth')->name('company-list');
 
 
-Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('login');;
+Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('registrationRequest');
+
+Route::post('/adminAdd', [AdminController::class, 'registerAdmin'])->name('adminAdd');;

@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
     public function validateRegistration(Request $request) {
-        $incomingFields = $request->validate(
+        return $request->validate(
             [
                 'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32' ],
@@ -43,13 +43,16 @@ class UserController extends Controller
                 'account_type' => 'required',
             ]
         );
-        return $incomingFields;
     }
 
     public function addUser(Request $request) {
         $userDetails = $this->validateRegistration($request);
+        //dd($userDetails);
         $user = $this->createUser($userDetails);
-        return redirect('/SUCCESS');
+        //return redirect('/SUCCESS');
+        
+        //return with modal success
+        return redirect()->back()->with('success', 'new User added successfully');
     }
 
 
@@ -89,13 +92,9 @@ class UserController extends Controller
         return redirect('/');
     }
 
-
-
-
-
     public function registerStudent(Request $request) {
         $incomingFields = $request->validate(
-            [
+            [//'regex:/^\d{4}-\d{4}-\d{5}$/'
                 'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32'],
                 'middle_initial' => ['max:1'],

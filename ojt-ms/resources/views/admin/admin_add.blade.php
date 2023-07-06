@@ -5,12 +5,15 @@
     <div class="col-md-10">
         <div class="card">
             <div class="card-header">
-                <h3>Add Student</h3>
+                <h3>Add Admin</h3>
             </div>
             <div class="card-body p-5">
 
-                <form action="/registrationRequest" method="POST" id="registerPending">
+                <form action="{{ route('registrationRequest') }}" method="POST" id="registerPending">
                     @csrf
+
+                    <input type="hidden" name="account_type" value="admin">
+
                     <div class="row">
                         <div class="col-md-5 mb-4">
                             <div class="form-outline">
@@ -61,43 +64,12 @@
                       </div>
                     </div>
       
-                    <div class="row w-100">
-                      <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                          <label class="form-label" for="course">Course</label>
-                          <select name="course" id="course" class="form-control form-control-md">
-                            <option value="BS Information Technology">BS Information Technology</option>
-                            <option value="BS Computer Science" selected>BS Computer Science</option>
-                            <option value="BS Meteorology">BS Meteorology</option>
-                            <option value="BS Biology">BS Biology</option>
-                            <option value="BS Chemistry">BS Chemistry</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-3 mb-4">
-                        <div class="form-outline">
-                          <label class="form-label" for="block">Block</label>
-                          <select name="block" id="block" class="form-control form-control-md">
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                          </select>
-                        </div>
-                      </div>
-      
-                      <div class="col-md-3 mb-4 pr-0" >
-                        <div class="form-outline">                    
-                          <label class="year_level" for="year_level">Year Level</label>
-                          <input type="number" name="year_level" value="3" min="3" max="6"  class="form-control form-control-md" required>
-                        </div>
-                      </div>
-                    </div>
-                    
                     <div class="row">
 
                         <div class="col-md-5 mb-4">
                             <div class="form-outline">                    
                               <label class="form-label" for="contact">Contact Number</label>
-                              <input type="number" id="contact" name="contact" class="form-control form-control-md @error('contact') is-invalid @enderror" maxlength="11" required/>
+                              <input type="string" id="contact" name="contact" class="form-control form-control-md @error('contact') is-invalid @enderror" maxlength="11" pattern="\d{11}" required placeholder="09123456789"/>
                               @error('contact')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -106,21 +78,23 @@
                             </div>
                         </div>
 
-                        <div class="col-md-5 mb-4 pl-0 pr-0">
-                            <div class="form-outline">    
-                                <label class="form-label" for="gender">Gender:</label>
-                                <select name="gender" class="form-control form-control-md">
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="role">Role</label>
+                            <select name="role" id="role" class="form-control form-control-md">
+                              <option value="OJT Coordinator" selected>OJT Coordinator</option>
+                              <option value="OJT Supervisor" >OJT Supervisor</option>
+                              <option value="Student Admin" >Student Admin</option>
+                              <option value="System Developer" >System Developer</option>  
+                            </select>
+                          </div>
                         </div>
                     </div>
                     
                     <div class="col-md-12 mb-4 pl-0 pr-0">
                       <div class="form-outline">
                         <label class="form-label" for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control form-control-md @error('email') is-invalid @enderror" required/>
+                        <input type="email" id="email" name="email" class="form-control form-control-md @error('email') is-invalid @enderror" placeholder="@bicol-u.edu.ph" required/>
                         @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -181,7 +155,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Student added successfully!</p>
+                <p>Admin added successfully!</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -194,14 +168,14 @@
 @endsection
 @section('scripts')
 
-    <script>
-    $(document).ready(function() {
-        @if(session('success'))
-            $('#successModal').modal('show');
-        @endif
-        
-        // Other JavaScript code goes here
-    });
+<script>
+  $(document).ready(function() {
+      @if(session('success'))
+          $('#successModal').modal('show');
+      @endif
+      
+      // Other JavaScript code goes here
+  });
 </script>
 
 <script>
@@ -220,8 +194,6 @@ $(document).ready(function() {
       }
     });
   });
-
-    
 
   $("#course").change(function() {
       var val = $(this).val();
