@@ -9,7 +9,7 @@
             </div>
             <div class="card-body p-5">
 
-                <form action="/registrationRequest" method="POST" id="registerPending">
+                <form action="{{ route('registrationRequest') }}" method="POST" id="registerPending">
                     @csrf
                     <div class="row">
                         <div class="col-md-5 mb-4">

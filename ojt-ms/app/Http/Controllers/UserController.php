@@ -16,7 +16,7 @@ class UserController extends Controller
     }
 
     //function to create a User
-    protected function createUser(array $data) {
+    public function createUser(array $data) {
         return User::create([
             'account_id' => $data['account_id'],
             'first_name' => $data['first_name'],
@@ -30,19 +30,22 @@ class UserController extends Controller
     }
 
     public function validateRegistration(Request $request) {
-        return $request->validate(
+        //dd($request->all());
+        $validatedRequest = $request->validate(
             [
                 'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32' ],
                 'middle_initial' => ['max:1'],
                 'last_name' => ['required', 'min:1', 'max:32'],
                 'contact_number' => ['required', 'min:11', 'max:11'],
-                'email' => ['required', 'email', 'min:3', 'max:64'],
+                'role' => 'required',
+                'email' => ['required', 'email', 'min:3', 'max:64', Rule::unique('users', 'email')],
                 'password' => ['required', 'min:8', 'max:32'],
                 'password_confirmation' => ['required', 'min:8', 'max:32', 'same:password'],
                 'account_type' => 'required',
             ]
         );
+        return $validatedRequest;
     }
 
     public function addUser(Request $request) {
@@ -52,7 +55,7 @@ class UserController extends Controller
         //return redirect('/SUCCESS');
         
         //return with modal success
-        return redirect()->back()->with('success', 'new User added successfully');
+        //return redirect()->back()->with('success', 'new User added successfully');
     }
 
 

@@ -9,7 +9,7 @@
             </div>
             <div class="card-body p-5">
 
-                <form action="{{ route('registrationRequest') }}" method="POST" id="registerPending">
+                <form action="{{ route('adminAdd') }}" method="POST" id="registerPending">
                     @csrf
 
                     <input type="hidden" name="account_type" value="admin">
@@ -68,9 +68,9 @@
 
                         <div class="col-md-5 mb-4">
                             <div class="form-outline">                    
-                              <label class="form-label" for="contact">Contact Number</label>
-                              <input type="string" id="contact" name="contact" class="form-control form-control-md @error('contact') is-invalid @enderror" maxlength="11" pattern="\d{11}" required placeholder="09123456789"/>
-                              @error('contact')
+                              <label class="form-label" for="contact_number">Contact Number</label>
+                              <input type="string" id="contact_number" name="contact_number" class="form-control form-control-md @error('contact_number') is-invalid @enderror" maxlength="11" pattern="\d{11}" required placeholder="09123456789"/>
+                              @error('contact_number')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -117,9 +117,9 @@
                       </div>
                       <div class="col-lg-6 mb-4 pb-2 pr-0">
                         <div class="form-outline">                    
-                          <label class="form-label" for="confirm_password">Confirm Password</label>
-                          <input type="password" id="confirm_password" name="confirm_password" class="form-control form-control-md @error('confirm_password') is-invalid @enderror" />
-                          @error('confirm_password')
+                          <label class="form-label" for="password_confirmation">Confirm Password</label>
+                          <input type="password" id="password_confirmation" name="password_confirmation" class="form-control form-control-md @error('password_confirmation') is-invalid @enderror" />
+                          @error('password_confirmation')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
