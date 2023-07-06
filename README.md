@@ -5,7 +5,7 @@ On-the-Job Training Management System (OMS) for Bicol University.
 Software Requirements:
 - [ ] Registration / Login - 
     + [ ] Student Account
-    + [ ] Admin Account
+    + [/] Admin Account
 - [ ] Profile Page
 - [ ] Document Requirements
     + [ ] Uploading
