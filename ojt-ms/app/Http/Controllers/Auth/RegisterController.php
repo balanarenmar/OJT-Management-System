@@ -49,17 +49,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // dd($data);
         return Validator::make($data, [
             'account_id' => ['required', 'string', 'size:15', 'unique:users'],
             'first_name' => ['required', 'min:1', 'max:32'],
-            'middle_initial' =>['max:1'],
+            'middle_initial ' =>['max:1'],
             'last_name' => ['required', 'min:1', 'max:32'],
             
             'contact_number' =>['required', 'integer', 'size:11'],
             'email' => ['required', 'email', 'min:3', 'max:64'],
-            'password' => ['required', 'min:8', 'max:32', 'confirmed'],
+            'password' => ['required', 'min:8', 'max:32'],
+            'password_confirmation' => ['required', 'min:8', 'same:password'], // 'same:password
 
             'account_type' => 'required',
+
         ]);
     }
 

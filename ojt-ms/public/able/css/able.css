@@ -33497,3 +33497,22 @@ new-task label input[type=checkbox] {
     background-color: transparent !important;
 }
 
+.btn-orange {
+    background-color: #F37123 !important;
+    border-color: #ff5722;
+    color: #fff;
+}
+
+.btn-blue {
+    background-color: #009BDE !important;
+    border-color: #ff5722;
+    color: #fff;
+}
+
+.bu-orange {
+    color: #F37123;
+}
+
+.bu-blue {
+    color: #009BDE;
+}

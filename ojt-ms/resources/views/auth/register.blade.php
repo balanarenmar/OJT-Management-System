@@ -6,11 +6,17 @@
         <img src="{{ asset('images/oms_logo.png') }}" alt="OMS Logo" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
         <h4 class="mb-3 f-w-400">Sign up</h4>
 
+        <form action="{{ route('register') }}" method="POST">
+        @csrf
+
+        <input type="hidden" class="form-control" id="account_type" name="account_type" value="admin">
+        <input type="hidden" class="form-control" id="contact_number" name="contact_number" value="09123456789">
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group mb-3">
                     <label class="floating-label" for="account_id">Student ID</label>
-                    <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="" maxlength="32" required>
+                    <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="" maxlength="15" required>
                     @error('account_id')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -72,7 +78,7 @@
         </div>
         <div class="form-group mb-4">
             <label class="floating-label" for="password">Password</label>
-            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" p>
             @error('password')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -80,15 +86,17 @@
             @enderror
         </div>
         <div class="form-group mb-4">
-            <label class="floating-label" for="confirm_password">Confirm Password</label>
-            <input type="password" class="form-control @error('confirm_password') is-invalid @enderror" id="confirm_password" name="confirm_password" placeholder="">
-            @error('confirm_password')
+            <label class="floating-label" for="password_confirmation">Confirm Password</label>
+            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
+            @error('password_confirmation')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
         </div>
         <button class="btn btn-primary btn-block mb-4">Register</button>
+        </form>
+
         <div class="text-center">
             <div class="saprator my-4"><span>OR</span></div>
             <p class="mt-4">Already have an account? <a href="{{ __('login') }}" class="f-w-400">Signin</a></p>

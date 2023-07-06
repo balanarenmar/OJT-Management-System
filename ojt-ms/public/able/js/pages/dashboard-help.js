@@ -130,23 +130,31 @@ $(document).ready(function() {
     });
     // [ support-chart2 ] end
 
-    // [ satisfaction-chart ] start
+    // [ deployment-chart ] start
     $(function() {
         var options = {
             chart: {
-                height: 260,
+                height: 400,
                 type: 'pie',
             },
-            series: [66, 50, 40, 30],
-            labels: ["Very Poor", "Satisfied", "Very Satisfied", "Poor"],
+            series: [5, 5, 15, 15, 8],
+            labels: ["Research Dept.", "CSIT Office", "BU Library", "Planning Office", "Outside"],
             legend: {
                 show: true,
                 offsetY: 50,
             },
+            dataLabels: {
+                formatter: function (val, opts) { //format to show whole number
+                    return opts.w.config.series[opts.seriesIndex]
+                },
+                style: {
+                    fontSize: '18px', // Increase the font size to make numbers appear larger
+                },
+            },
             theme: {
                 monochrome: {
                     enabled: true,
-                    color: '#4680ff',
+                    color: '#009BDE',
                 }
             },
             responsive: [{
@@ -163,10 +171,13 @@ $(document).ready(function() {
                 }
             }]
         }
-        var chart = new ApexCharts(document.querySelector("#satisfaction-chart"), options);
+        var chart = new ApexCharts(document.querySelector("#deployment-chart"), options);
         chart.render();
     });
-    // [ satisfaction-chart ] end
+    // [ deployment-chart ] end
+
+
+
 
     // [ latest-scroll ] start
     var px = new PerfectScrollbar('.latest-scroll', {

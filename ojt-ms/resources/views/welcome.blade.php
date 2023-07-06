@@ -31,9 +31,9 @@
             </div>
 
             <div class="auth-side-form bg-transparent">
-                <div class=" auth-content">
-                    <a href="{{ route('login') }}" class="f-w-400"><button class="btn btn-primary btn-block mb-4">Login</button></a>
-                    <a href="{{ route('register') }}" class="f-w-400"><button class="btn btn-primary btn-block mb-4">Register</button></a>
+                <div class=" auth-content text-center">
+                    <a href="{{ route('login') }}" class="f-w-400 "><button class="btn btn-orange btn-block mb-4 ">Login</button></a>
+                    <a href="{{ route('register') }}" class="f-w-400"><button class="btn btn-orange btn-block mb-4">Register</button></a>
                 </div>
             </div>
         </div>

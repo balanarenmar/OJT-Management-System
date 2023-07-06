@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('first_name', 32);           
             $table->string('middle_initial', 1)->nullable(); 
             $table->string('last_name', 32);            
-            $table->integer('contact_number')->nullable();
+            $table->string('contact_number')->nullable();
             $table->string('email')->unique();          
             $table->string('password');
             $table->enum('account_type', ['admin', 'student'])->default('student');

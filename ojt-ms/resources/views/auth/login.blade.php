@@ -2,16 +2,15 @@
 @section('content')
 
     <div class="auth-side-form">
-
         <form action={{ route('login') }} method="POST">
             @csrf
             <div class=" auth-content">
                 <img src="{{ asset('images/oms_logo.png') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
-                <h3 class="mb-4 f-w-400">Signin</h3>
+                <h3 class="mb-4 f-w-400">Login</h3>
                 <div class="form-group mb-3">
-                    <label class="floating-label" for="email">Email address</label>
-                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="" name="email" required autocomplete="email">
-                    @error('email')
+                    <label class="floating-label" for="email">Student ID</label>
+                    <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" placeholder="" name="account_id" required autocomplete="account_id" maxlength="15">
+                    @error('account_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -32,7 +31,7 @@
                         {{ __('Remember Me') }}
                     </label>
                 </div>
-                <button class="btn btn-block btn-primary mb-4">Signin</button>
+                <button class="btn btn-block btn-primary mb-4">Login</button>
                 <div class="text-center">
                     @if (Route::has('password.request'))
                         <p class="mb-2 mt-4 text-muted">Forgot password? <a href="{{ route('password.request') }}" class="f-w-400">Reset</a></p>
