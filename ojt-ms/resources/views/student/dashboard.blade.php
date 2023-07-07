@@ -1,4 +1,4 @@
-@extends('layouts.able')
+@extends('layouts.student_nav')
 @section('content')
 
 
@@ -69,10 +69,44 @@
 </div>
 
 <!-- [ Main Content ] end -->
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Welcome Student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You are already logged in</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('scripts')
     <script src="{{ asset('able/js/plugins/apexcharts.min.js') }}"></script>
     <script src="{{ asset('able/js/pages/dashboard-help.js') }}"></script>
     
+    <script>
+        $(document).ready(function() {
+            // Check if the 'auth_pass' message exists in the session
+            @if(session('auth_pass'))
+                $('#myModal').modal('show');
+            @endif
+
+            @if(session('not-admin'))
+                $('#modal_not_admin').modal('show');
+            @endif
+        });
+    </script>
+
+
 @endsection

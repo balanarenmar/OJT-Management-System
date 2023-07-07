@@ -23,13 +23,13 @@ class CheckUserRole
                 if ($user->account_type === 'admin') {
                     return $next($request);
                 } else {
-                    return redirect()->route('admin-login')->with('error', 'You are not a student.');
+                    return redirect()->route('student-dashboard')->with('not-admin', 'You are not a student.');
                 }
             } elseif ($this->isStudentView($request)) {
                 if ($user->account_type === 'student') {
                     return $next($request);
                 } else {
-                    return redirect()->route('admin-dashboard')->with('error', 'You do not have permission to access this page.');
+                    return redirect()->route('admin-dashboard')->with('not-student', 'You do not have permission to access this page.');
                 }
             }
         }

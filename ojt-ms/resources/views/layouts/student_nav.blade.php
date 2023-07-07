@@ -64,7 +64,7 @@
 						<label>Navigation</label>
 					</li>
 					<li class="nav-item">
-						<a href="{{route('admin-dashboard')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+						<a href="{{route('student-dashboard')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
 					</li>
                     <li class="nav-item">
 						<a href="{{ url('/profile') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check-square"></i></span><span class="pcoded-mtext">Profile</span></a>

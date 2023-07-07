@@ -18,8 +18,7 @@ use App\Http\Controllers\PendingController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('index');
-
+})->middleware(['guest'])->name('index');
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -54,8 +53,6 @@ Route::get('/first', function () {
 Route::get('/student/dashboard', function () {
     return view('student.dashboard');
 })->middleware(['auth', 'role'])->name('student-dashboard');
-
-
 
 
 // ADMIN ROUTES

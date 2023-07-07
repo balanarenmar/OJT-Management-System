@@ -23,11 +23,13 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
 
                 // return redirect(RouteServiceProvider::HOME); //old code
-                $userType = Auth::user()->user_type;
+                $userType = Auth::user()->account_type;
                 if ($userType == 'admin') {
-                    return redirect('/admin/dashboard');
+                    return redirect()->route('admin-dashboard')->with('auth_pass', 'You are already logged in as admin.');
+                    //return redirect('admin-dashboard');
                 } elseif ($userType == 'student') {
-                    return redirect('/student/dashboard');
+                    return redirect()->route('student-dashboard')->with('auth_pass', 'You are already logged in as student.');
+                    //return redirect('student-dashboard');
                 }
             }
         }

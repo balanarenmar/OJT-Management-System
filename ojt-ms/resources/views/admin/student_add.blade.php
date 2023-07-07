@@ -194,14 +194,14 @@
 @endsection
 @section('scripts')
 
-    <script>
-    $(document).ready(function() {
-        @if(session('success'))
-            $('#successModal').modal('show');
-        @endif
-        
-        // Other JavaScript code goes here
-    });
+<script>
+  $(document).ready(function() {
+      @if(session('success'))
+          $('#successModal').modal('show');
+      @endif
+      
+      // Other JavaScript code goes here
+  });
 </script>
 
 <script>
