@@ -54,41 +54,59 @@ Route::get('/student/dashboard', function () {
     return view('student.dashboard');
 })->middleware(['auth', 'role'])->name('student-dashboard');
 
+Route::get('/student/profile', function () {
+    return view('student.profile');
+})->middleware(['auth', 'role'])->name('s-profile');
+
+Route::get('/student/student-list', function () {
+    return view('student.student_list');
+})->middleware(['auth', 'role'])->name('s-showStudentList');
+
+Route::get('/student/company-list', function () {
+    return view('student.company_list');
+})->middleware(['auth', 'role'])->name('s-showCompanyList');
 
 // ADMIN ROUTES
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'role'])->name('admin-dashboard');
 
+Route::get('/admin/profile', function () {
+    return view('admin.profile');
+})->middleware(['auth', 'role'])->name('a-profile');
+
 Route::get('/admin/student-list', function () {
     return view('admin.student_list');
-})->middleware(['auth', 'role'])->name('student-list');
+})->middleware(['auth', 'role'])->name('a-showStudentList');
 
-Route::get('/admin/student-add', function () {
+Route::get('/admin/add-student', function () {
     return view('admin.student_add');
-})->middleware(['auth', 'role'])->name('student-add');
+})->middleware(['auth', 'role'])->name('a-createStudent');
 
 Route::get('/admin/student-requests', function () {
     return view('admin.student_requests');
-})->middleware(['auth', 'role'])->name('student-requests');
+})->middleware(['auth', 'role'])->name('a-showStudentRequests');
 
 Route::get('/admin/admin-list', function () {
     return view('admin.admin_list');
-})->middleware(['auth', 'role'])->name('admin-list');
+})->middleware(['auth', 'role'])->name('a-showAdminList');
 
 Route::get('/admin/admin-add', function () {
     return view('admin.admin_add');
-})->middleware(['auth', 'role'])->name('admin-add');
+})->middleware(['auth', 'role'])->name('a-createAdmin');
 
 Route::get('/admin/company-list', function () {
     return view('admin.company_list');
-})->middleware(['auth', 'role'])->name('company-list');
+})->middleware(['auth', 'role'])->name('a-showCompanyList');
 
 Route::get('/admin/company-add', function () {  //TO ADD
     return view('admin.company_add');
-})->middleware(['auth', 'role'])->name('company-add');
+})->middleware(['auth', 'role'])->name('a-createCompany');
 
 
 Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('registrationRequest');
 
 Route::post('/adminAdd', [AdminController::class, 'registerAdmin'])->name('adminAdd');;
+
+//LARAVEL naming conventions
+//index, show, create, store, edit, update and delete

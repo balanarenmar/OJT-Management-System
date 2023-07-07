@@ -45,7 +45,7 @@
 					</div>
 					<div class="collapse" id="nav-user-link">
 						<ul class="list-inline">
-							<li class="list-inline-item"><a href="{{ url('/user-profile') }}" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
+							<li class="list-inline-item"><a href="{{route('s-profile')}}" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
                             <li class="list-inline-item">
                                 <form id="logout-form" action="/logout" method="POST" style="display: none;">
                                     @csrf
@@ -67,10 +67,24 @@
 						<a href="{{route('student-dashboard')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
 					</li>
                     <li class="nav-item">
-						<a href="{{ url('/profile') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check-square"></i></span><span class="pcoded-mtext">Profile</span></a>
+						<a href="{{route('s-profile')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check-square"></i></span><span class="pcoded-mtext">Profile</span></a>
 					</li>
+
+                    <li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Students</span></a>
+						<ul class="pcoded-submenu">
+							<li><a href="{{route('s-showStudentList')}}">Student List</a></li>
+						</ul>
+					</li>
+
+
+
+                    <li class="nav-item">
+						<a href="{{route('s-showCompanyList')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Company List</span></a>
+					</li>
+                    
 					<li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Page layouts</span></a>
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Navbar Item</span></a>
 						<ul class="pcoded-submenu">
 							<li class="pcoded-hasmenu"><a href="#!">Vertical</a>
 								<ul class="pcoded-submenu">
@@ -85,41 +99,6 @@
 							<li><a href="layout-dark.html" target="_blank">Dark layout <span class="pcoded-badge badge badge-danger">Hot</span></a></li>
 						</ul>
 					</li>
-
-                    <li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Students</span></a>
-						<ul class="pcoded-submenu">
-							<li><a href="{{route('student-list')}}">Student List</a></li>
-							<li><a href="{{route('student-add')}}">Add Student</a></li>
-							<li><a href="{{route('student-requests')}}">Registration Requests</a></li>
-						</ul>
-					</li>
-
-                    <li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Admins</span></a>
-						<ul class="pcoded-submenu">
-							<li><a href="{{route('admin-list')}}">Admin List</a></li>
-							<li><a href="{{route('admin-add')}}">Add Admin</a></li>
-						</ul>
-					</li>
-
-
-                    <li class="nav-item">
-						<a href="{{route('company-list')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Company List</span></a>
-					</li>
-                    
-
-					<li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Widget</span><span class="pcoded-badge badge badge-dashboard">100+</span></a>
-						<ul class="pcoded-submenu">
-							<li><a href="widget-statistic.html">Statistic</a></li>
-							<li><a href="widget-data.html">Data</a></li>
-							<li><a href="widget-chart.html">Chart</a></li>
-						</ul>
-					</li>
-                    {{-- <li class="nav-item">
-						<a href="{{route('add-admin')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Add Admin</span></a>
-					</li> --}}
 				</ul>
 				
 			</div>
