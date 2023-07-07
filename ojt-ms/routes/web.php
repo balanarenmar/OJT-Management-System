@@ -46,40 +46,50 @@ Route::post('/register', [App\Http\Controllers\UserController::class, 'addUser']
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
 Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
-
-
-
 Route::get('/first', function () {
     return view('first');
 })->middleware('auth');
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware('auth')->name('dashboard');
+// STUDENT ROUTES
+Route::get('/student/dashboard', function () {
+    return view('student.dashboard');
+})->middleware('auth')->name('student-dashboard');
 
-Route::get('/student-list', function () {
+
+
+
+// ADMIN ROUTES
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth', 'is.admin'])->name('admin-dashboard');
+
+Route::get('/admin/student-list', function () {
     return view('admin.student_list');
 })->middleware('auth')->name('student-list');
 
-Route::get('/student-add', function () {
+Route::get('/admin/student-add', function () {
     return view('admin.student_add');
 })->middleware('auth')->name('student-add');
 
-Route::get('/student-requests', function () {
+Route::get('/admin/student-requests', function () {
     return view('admin.student_requests');
 })->middleware('auth')->name('student-requests');
 
-Route::get('/admin-list', function () {
+Route::get('/admin/admin-list', function () {
     return view('admin.admin_list');
 })->middleware('auth')->name('admin-list');
 
-Route::get('/admin-add', function () {
+Route::get('/admin/admin-add', function () {
     return view('admin.admin_add');
 })->middleware('auth')->name('admin-add');
 
-Route::get('/company-list', function () {
+Route::get('/admin/company-list', function () {
     return view('admin.company_list');
 })->middleware('auth')->name('company-list');
+
+Route::get('/admin/company-add', function () {  //TO ADD
+    return view('admin.company_add');
+})->middleware('auth')->name('company-add');
 
 
 Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('registrationRequest');

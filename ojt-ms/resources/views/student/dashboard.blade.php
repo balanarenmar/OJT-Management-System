@@ -1,4 +1,4 @@
-@extends('layouts.admin_nav')
+@extends('layouts.able')
 @section('content')
 
 

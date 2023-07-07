@@ -80,9 +80,9 @@ class UserController extends Controller
                 $request->session()->regenerate();
 
                 if ($user->account_type === 'admin') {
-                    return redirect('admin/dashboard');
+                    return redirect()->route('admin-dashboard');
                 } else {
-                    return redirect('student/dashboard');
+                    return redirect()->route('student-dashboard');
                 }
                 
                 return redirect('/success');

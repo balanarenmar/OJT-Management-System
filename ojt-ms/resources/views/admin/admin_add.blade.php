@@ -1,4 +1,4 @@
-@extends('layouts.able')
+@extends('layouts.admin_nav')
 @section('content')
 
 <div class="row d-flex justify-content-center ">
