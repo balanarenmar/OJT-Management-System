@@ -33,25 +33,21 @@ Route::get('/login', function () {
     return view('auth/login');
 })->middleware('guest');
 
+// Route::middleware(['auth', 'is.student'])->group(function () {
+//     Route::get('/dashboard/student', 'DashboardController@student')->name('dashboard.student');
+// });
+
 
 Route::get('/register', function () {
     return view('auth/register');
 })->middleware('guest');
 
-// Route::post('/register', function () {
-//     return view('auth/register');
-// });
-// Route::post('/login', function () {
-//     return view('auth/register');
-// });
-
 Route::post('/register', [App\Http\Controllers\UserController::class, 'addUser'])->name('register');
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
 Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('first');
-})->middleware('auth')->name('dashboard');
+
+
 
 Route::get('/first', function () {
     return view('first');

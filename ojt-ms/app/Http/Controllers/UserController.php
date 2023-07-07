@@ -78,6 +78,13 @@ class UserController extends Controller
                 'password' => $loginDetails['password']
             ])) {
                 $request->session()->regenerate();
+
+                if ($user->account_type === 'admin') {
+                    return redirect('admin/dashboard');
+                } else {
+                    return redirect('student/dashboard');
+                }
+                
                 return redirect('/success');
             } else {
                 return back()->withErrors(['password' => 'Invalid password. Please try again.']);

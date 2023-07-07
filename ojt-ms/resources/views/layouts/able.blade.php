@@ -161,8 +161,9 @@
         <div class="pcoded-content">
             <div class="page-header">
             </div>
-                {{-- CONTENTS should start with row divs --}}
-            @yield('content')
+
+			{{-- CONTENTS should start with row divs --}}
+			@yield('content')
 
         </div>
     </div>
@@ -177,11 +178,6 @@
 <script src="{{ asset('able/js/plugins/bootstrap.min.js') }}"></script>
 <script src="{{ asset('able/js/ripple.js') }}"></script>
 <script src="{{ asset('able/js/pcoded.min.js') }}"></script>
-{{-- <script src="{{ asset('able/js/menu-setting.min.js') }}"></script> --}}
-
-{{-- <script src="{{ asset('able/js/pages/todo.js') }}"></script> --}}
-{{-- <script src="{{ asset('able/js/plugins/sweetalert.min.js') }}"></script>
-<script src="{{ asset('able/js/pages/ac-alert.js') }}"></script> --}}
 
 @yield('scripts')
 
