@@ -33,7 +33,7 @@ Route::get('/login', function () {
     return view('auth/login');
 })->middleware('guest');
 
-// Route::middleware(['auth', 'is.student'])->group(function () {
+// Route::middleware(['auth', 'role'])->group(function () {
 //     Route::get('/dashboard/student', 'DashboardController@student')->name('dashboard.student');
 // });
 
@@ -53,7 +53,7 @@ Route::get('/first', function () {
 // STUDENT ROUTES
 Route::get('/student/dashboard', function () {
     return view('student.dashboard');
-})->middleware('auth')->name('student-dashboard');
+})->middleware(['auth', 'role'])->name('student-dashboard');
 
 
 
@@ -61,35 +61,35 @@ Route::get('/student/dashboard', function () {
 // ADMIN ROUTES
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-})->middleware(['auth', 'is.admin'])->name('admin-dashboard');
+})->middleware(['auth', 'role'])->name('admin-dashboard');
 
 Route::get('/admin/student-list', function () {
     return view('admin.student_list');
-})->middleware('auth')->name('student-list');
+})->middleware(['auth', 'role'])->name('student-list');
 
 Route::get('/admin/student-add', function () {
     return view('admin.student_add');
-})->middleware('auth')->name('student-add');
+})->middleware(['auth', 'role'])->name('student-add');
 
 Route::get('/admin/student-requests', function () {
     return view('admin.student_requests');
-})->middleware('auth')->name('student-requests');
+})->middleware(['auth', 'role'])->name('student-requests');
 
 Route::get('/admin/admin-list', function () {
     return view('admin.admin_list');
-})->middleware('auth')->name('admin-list');
+})->middleware(['auth', 'role'])->name('admin-list');
 
 Route::get('/admin/admin-add', function () {
     return view('admin.admin_add');
-})->middleware('auth')->name('admin-add');
+})->middleware(['auth', 'role'])->name('admin-add');
 
 Route::get('/admin/company-list', function () {
     return view('admin.company_list');
-})->middleware('auth')->name('company-list');
+})->middleware(['auth', 'role'])->name('company-list');
 
 Route::get('/admin/company-add', function () {  //TO ADD
     return view('admin.company_add');
-})->middleware('auth')->name('company-add');
+})->middleware(['auth', 'role'])->name('company-add');
 
 
 Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('registrationRequest');
