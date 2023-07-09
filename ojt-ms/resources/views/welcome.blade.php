@@ -26,7 +26,8 @@
                     <img src="assets/images/auth/auth-logo.png" alt="" class="img-fluid">
 
                     <h1 class="text-white my-4">BU OJT Management System</h1>
-                    <h4 class="text-white font-weight-normal">Signup to your account and made member of the Able pro Dashboard Template.<br/>Do not forget to play with live customizer</h4>
+                    <h4 class="text-white font-weight-normal">Welcome to the OJT Management System (OMS). 
+                        <br/>Register or Login to enter</h4>
                 </div>
             </div>
 

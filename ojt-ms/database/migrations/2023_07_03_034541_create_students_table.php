@@ -33,6 +33,7 @@ return new class extends Migration
             $table->date('date_completed')->nullable();
             $table->integer('hrs_rendered');
             $table->integer('hrs_remaining');
+            $table->timestamps();
         });
     }
 

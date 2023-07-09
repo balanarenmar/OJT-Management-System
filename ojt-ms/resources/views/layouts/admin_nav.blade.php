@@ -22,7 +22,7 @@
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
 </head>
-<body class="background-img-5">
+<body class="background-grd-dark">
 
     <!-- [ Pre-loader ] start -->
 	<div class="loader-bg">
@@ -67,23 +67,7 @@
 						<a href="{{route('admin-dashboard')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
 					</li>
                     <li class="nav-item">
-						<a href="{{ url('/profile') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check-square"></i></span><span class="pcoded-mtext">Profile</span></a>
-					</li>
-					<li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Page layouts</span></a>
-						<ul class="pcoded-submenu">
-							<li class="pcoded-hasmenu"><a href="#!">Vertical</a>
-								<ul class="pcoded-submenu">
-									<li><a href="{{ url('/admin/students') }}" target="_blank">Static</a></li>
-									<li><a href="{{ url('/admin/students') }}" target="_blank">Fixed</a></li>
-									<li><a href="{{ url('/admin/students') }}" target="_blank">Navbar fixed</a></li>
-									<li><a href="{{ url('/admin/students') }}" target="_blank">Collapse menu</a></li>
-									<li><a href="{{ url('/admin/students') }}" target="_blank">Vertical RTL</a></li>
-								</ul>
-							</li>
-							<li><a href="layout-horizontal.html" target="_blank">Horizontal</a></li>
-							<li><a href="layout-dark.html" target="_blank">Dark layout <span class="pcoded-badge badge badge-danger">Hot</span></a></li>
-						</ul>
+						<a href="{{route('a-profile')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check-square"></i></span><span class="pcoded-mtext">Profile</span></a>
 					</li>
 
                     <li class="nav-item pcoded-hasmenu">
@@ -99,7 +83,7 @@
 						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Admins</span></a>
 						<ul class="pcoded-submenu">
 							<li><a href="{{route('a-showAdminList')}}">Admin List</a></li>
-							<li><a href="{{route('a-createAdmin')}}">Add Admin</a></li>
+							<li><a href="{{route('a-createAdmin')}}">Add an Admin</a></li>
 						</ul>
 					</li>
 
@@ -107,16 +91,32 @@
                     <li class="nav-item">
 						<a href="{{route('a-showCompanyList')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Company List</span></a>
 					</li>
-                    
 
 					<li class="nav-item pcoded-hasmenu">
-						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Widget</span><span class="pcoded-badge badge badge-dashboard">100+</span></a>
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Companies</span></a>
 						<ul class="pcoded-submenu">
-							<li><a href="widget-statistic.html">Statistic</a></li>
-							<li><a href="widget-data.html">Data</a></li>
-							<li><a href="widget-chart.html">Chart</a></li>
+							<li><a href="{{route('a-showAdminList')}}">Company List</a></li>
+							<li><a href="{{route('a-createAdmin')}}">Add a company</a></li>
 						</ul>
 					</li>
+                 
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Sample Item</span></a>
+						<ul class="pcoded-submenu">
+							<li class="pcoded-hasmenu"><a href="#!">Vertical</a>
+								<ul class="pcoded-submenu">
+									<li><a href="{{ url('/admin/students') }}" target="_blank">Static</a></li>
+									<li><a href="{{ url('/admin/students') }}" target="_blank">Fixed</a></li>
+									<li><a href="{{ url('/admin/students') }}" target="_blank">Navbar fixed</a></li>
+									<li><a href="{{ url('/admin/students') }}" target="_blank">Collapse menu</a></li>
+									<li><a href="{{ url('/admin/students') }}" target="_blank">Vertical RTL</a></li>
+								</ul>
+							</li>
+							<li><a href="layout-horizontal.html" target="_blank">Horizontal</a></li>
+							<li><a href="layout-dark.html" target="_blank">Dark layout <span class="pcoded-badge badge badge-danger">Hot</span></a></li>
+						</ul>
+					</li>
+
                     {{-- <li class="nav-item">
 						<a href="{{route('add-admin')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Add Admin</span></a>
 					</li> --}}
@@ -178,6 +178,8 @@
 <script src="{{ asset('able/js/plugins/bootstrap.min.js') }}"></script>
 <script src="{{ asset('able/js/ripple.js') }}"></script>
 <script src="{{ asset('able/js/pcoded.min.js') }}"></script>
+<script src="{{ asset('able/js/menu-setting.min.js') }}"></script>
+
 
 @yield('scripts')
 

@@ -22,8 +22,8 @@
     <div class="auth-wrapper align-items-stretch aut-bg-img">
         <div class="flex-grow-1">
             <a href={{ url('/') }}>
-            <div class="h-100 d-md-flex align-items-center auth-side-img">
-                <div class="col-sm-10 auth-content w-auto">
+            <div class="h-100 d-md-flex align-items-center auth-side-img position-fixed">
+                <div class="col-sm-10 auth-content w-auto ">
                     <img src="assets/images/auth/auth-logo.png" alt="" class="img-fluid">
 
                     <h1 class="text-white my-4">BU OJT Management System</h1>
@@ -48,6 +48,8 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    @yield('scripts')
 
 </body>
 </html>
