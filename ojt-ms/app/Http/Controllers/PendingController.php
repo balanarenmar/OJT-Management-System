@@ -17,6 +17,7 @@ class PendingController extends Controller
 
     //function to create a Registration Request
     protected function createPending(Request $pendingDetails) {
+        
         $data = $this->validatePending($pendingDetails);
         Pending::create([
             'account_id' => $data['account_id'],
@@ -47,7 +48,7 @@ class PendingController extends Controller
                 'course' => 'required',
                 'block' => 'required',
                 'gender' => 'required',
-                'year_level' => ['required', 'numeric', 'between:3,7'],
+                'year_level' => ['required', 'numeric', 'between:1,7'],
                 'email' => ['required', 'email', 'min:3', 'max:64'],
                 'password' => ['required', 'min:8', 'max:32'],
                 'confirm_password' => ['required', 'same:password'],

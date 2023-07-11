@@ -40,7 +40,7 @@
 					<div class="main-menu-header">
 						<img class="img-radius" src="{{ asset('able/images/user/avatar-2.jpg') }}">
 						<div class="user-details">
-							<div id="more-details"> {{ Auth::user()->first_name }} <i class="fa fa-caret-down"></i></div>
+							<div id="more-details"> {{ Auth::user()->first_name }}  {{ Auth::user()->last_name }} <i class="fa fa-caret-down"></i></div>
 						</div>
 					</div>
 					<div class="collapse" id="nav-user-link">

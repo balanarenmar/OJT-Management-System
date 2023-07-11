@@ -52,6 +52,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group mb-3">
@@ -94,6 +95,7 @@
             </span>
             @enderror
         </div>
+        
         <button class="btn btn-primary btn-block mb-4">Register</button>
         </form>
 

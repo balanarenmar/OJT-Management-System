@@ -97,7 +97,7 @@
                         <div class="col-md-5 mb-4">
                             <div class="form-outline">                    
                               <label class="form-label" for="contact">Contact Number</label>
-                              <input type="number" id="contact" name="contact" class="form-control form-control-md @error('contact') is-invalid @enderror" maxlength="11" required/>
+                              <input type="number" id="contact" name="contact" class="form-control form-control-md @error('contact') is-invalid @enderror" pattern="09\d{9}" maxlength="11" required/>
                               @error('contact')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -200,7 +200,6 @@
           $('#successModal').modal('show');
       @endif
       
-      // Other JavaScript code goes here
   });
 </script>
 
@@ -220,8 +219,6 @@ $(document).ready(function() {
       }
     });
   });
-
-    
 
   $("#course").change(function() {
       var val = $(this).val();

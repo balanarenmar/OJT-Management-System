@@ -33521,7 +33521,7 @@ new-task label input[type=checkbox] {
     display: none;
   }
 
-  /* your CSS goes here MULTI STEP*/
+  /* your CSS goes here MULTI STEP FORM*/
  body {
     background: #eee
 }
@@ -33529,26 +33529,17 @@ new-task label input[type=checkbox] {
 #regForm {
     background-color: #ffffff;
     margin: 0px auto;
-    font-family: Raleway;
-    padding: 40px;
     border-radius: 10px
 }
 
-h1 {
-    text-align: center
-}
-
-input {
-    padding: 10px;
-    width: 100%;
-    font-size: 17px;
-    font-family: Raleway;
-    border: 1px solid #aaaaaa
-}
-
 input.invalid {
-    background-color: #ffdddd
-}
+    background-color: rgba(255, 221, 221, 0.5); /* Use an rgba color with reduced opacity */
+    transition: background-color 0.5s ease-out; /* Add transition for background-color */
+  }
+  
+  input.invalid.fade-out {
+    background-color: transparent; /* Set the background-color to transparent when fading out */
+  }
 
 .tab {
     display: none
@@ -33560,7 +33551,6 @@ button {
     border: none;
     padding: 10px 20px;
     font-size: 17px;
-    font-family: Raleway;
     cursor: pointer
 }
 
@@ -33616,7 +33606,6 @@ button:hover {
 
 
 /* Hide the browser's default radio button */
-
 .container input[type="radio"] {
     position: absolute;
     opacity: 0;
@@ -33625,7 +33614,6 @@ button:hover {
 
 
 /* Create a custom radio button */
-
 .checkmark {
     position: absolute;
     top: 0;
@@ -33638,21 +33626,18 @@ button:hover {
 
 
 /* On mouse-over, add a grey background color */
-
 .container:hover input~.checkmark {
     background-color: #ccc;
 }
 
 
 /* When the radio button is checked, add a blue background */
-
 .container input:checked~.checkmark {
     background-color: #2196F3;
 }
 
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
-
 .checkmark:after {
     content: "";
     position: absolute;
@@ -33661,14 +33646,12 @@ button:hover {
 
 
 /* Show the indicator (dot/circle) when checked */
-
 .container input:checked~.checkmark:after {
     display: block;
 }
 
 
 /* Style the indicator (dot/circle) */
-
 .container .checkmark:after {
     top: 9px;
     left: 9px;
