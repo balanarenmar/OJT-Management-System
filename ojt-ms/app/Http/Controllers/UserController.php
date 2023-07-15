@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function create(): View
-    {
+    public function create(): View {
         return view('post.create');
     }
 
@@ -23,7 +22,6 @@ class UserController extends Controller
             'middle_initial' => $data['middle_initial'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
-            'contact_number' => $data['contact_number'],
             'password' => bcrypt($data['password']),
             'account_type' => $data['account_type']
         ]);
@@ -33,11 +31,11 @@ class UserController extends Controller
         //dd($request->all());
         $validatedRequest = $request->validate(
             [
-                'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
+                'account_id' => ['required', 'min:14', 'max:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32' ],
                 'middle_initial' => ['max:1'],
                 'last_name' => ['required', 'min:1', 'max:32'],
-                'contact_number' => ['required', 'min:11', 'max:11'],
+                'contact' => ['required', 'min:11', 'max:11'],
                 'role' => 'required',
                 'email' => ['required', 'email', 'min:3', 'max:64', Rule::unique('users', 'email')],
                 'password' => ['required', 'min:8', 'max:32'],
@@ -52,18 +50,15 @@ class UserController extends Controller
         $userDetails = $this->validateRegistration($request);
         //dd($userDetails);
         $user = $this->createUser($userDetails);
-        //return redirect('/SUCCESS');
-        
         //return with modal success
         //return redirect()->back()->with('success', 'new User added successfully');
     }
 
-
     public function validateLogin(Request $request) {
         $incomingFields = $request->validate(
             [
-                'account_id' => ['required', 'min:15', 'max:15'],
-                'password' => ['required', 'min:8', 'max:32'],
+                'account_id' => ['required', 'min:14', 'max:15'],
+                'password' => ['required', 'max:32'],
             ]
         );
         return $incomingFields;
@@ -94,7 +89,6 @@ class UserController extends Controller
         }
     }
 
-
     public function logout(Request $request) {
         auth()->logout();
         $request->session()->invalidate();
@@ -104,8 +98,8 @@ class UserController extends Controller
 
     public function registerStudent(Request $request) {
         $incomingFields = $request->validate(
-            [//'regex:/^\d{4}-\d{4}-\d{5}$/'
-                'account_id' => ['required', 'min:15', 'max:15', Rule::unique('users', 'account_id')],
+            [
+                'account_id' => ['required', 'min:14', 'max:15', Rule::unique('users', 'account_id')],
                 'first_name' => ['required', 'min:1', 'max:32'],
                 'middle_initial' => ['max:1'],
                 'last_name' => ['required', 'min:1', 'max:32'],
@@ -113,13 +107,19 @@ class UserController extends Controller
                 'password' => ['required', 'min:8', 'max:32'],
 
                 'account_type' => 'required',
+                'contact' => ['required', 'min:11', 'max:11'],
                 'course' => 'required',
                 'block' => 'required',
-                'year_level' => 'required',
                 'gender' => 'required',
+                'year_level' => 'required',
                 'hrs_remaining' =>'required', 'integer'
             ]
         );
     }
+
+    
+
+
+
 
 }

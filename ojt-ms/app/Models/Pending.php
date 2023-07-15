@@ -22,6 +22,5 @@ class Pending extends Model
         'block',
         'gender',
         'year_level'
-        
     ];
 }

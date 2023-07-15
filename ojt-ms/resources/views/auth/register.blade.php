@@ -133,7 +133,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group mb-3">
                                         <label class="floating-label" for="contact">Contact Number</label>
-                                        <input type="string" id="contact" name="contact" class="form-control form-control-md @error('contact') is-invalid @enderror" pattern="09\d{9}" maxlength="11" required/>
+                                        <input type="string" id="contact" name="contact" class="form-control form-control-md @error('contact') is-invalid @enderror" maxlength="11"/>
                                         @error('contact')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -209,26 +209,7 @@
     </div>
 </div>
 
-<!-- Modal start --> 
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="successModalLabel">Success</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Account application success</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal end --> 
+
 
 @endsection
 
@@ -324,6 +305,10 @@
 
     <script>
         $(document).ready(function() {
+            
+            @if(session('success'))
+                $('#successModal').modal('show');
+            @endif
 
             $('input[name="confirm_password"]').keyup(function() {
             var password = $('input[name="password"]').val();
@@ -352,17 +337,8 @@
             } else if (val == "BS Chemistry") {
                 $("#block").html("<option value='A'>A</option> <option value='B'>B</option>");
             }
-
         });
       </script>
 
-    <script>
-        $(document).ready(function() {
-            @if(session('success'))
-                $('#successModal').modal('show');
-            @endif
-            
-        });
-    </script>
 
 @endsection

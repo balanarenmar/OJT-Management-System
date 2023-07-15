@@ -38,9 +38,9 @@
 				
 				<div class="">
 					<div class="main-menu-header">
-						<img class="img-radius" src="{{ asset('able/images/user/avatar-2.jpg') }}">
+						<img class="img-radius" src="{{ asset('able/images/user/avatar.jpg') }}">
 						<div class="user-details">
-							<div id="more-details"> {{ Auth::user()->first_name }} <i class="fa fa-caret-down"></i></div>
+							<div id="more-details"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <i class="fa fa-caret-down"></i></div>
 						</div>
 					</div>
 					<div class="collapse" id="nav-user-link">
@@ -87,15 +87,10 @@
 						</ul>
 					</li>
 
-
-                    <li class="nav-item">
-						<a href="{{route('a-showCompanyList')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Company List</span></a>
-					</li>
-
 					<li class="nav-item pcoded-hasmenu">
 						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Companies</span></a>
 						<ul class="pcoded-submenu">
-							<li><a href="{{route('a-showAdminList')}}">Company List</a></li>
+							<li><a href="{{route('a-showCompanyList')}}">Company List</a></li>
 							<li><a href="{{route('a-createAdmin')}}">Add a company</a></li>
 						</ul>
 					</li>

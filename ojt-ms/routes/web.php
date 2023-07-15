@@ -32,11 +32,6 @@ Route::get('/login', function () {
     return view('auth/login');
 })->middleware('guest');
 
-// Route::middleware(['auth', 'role'])->group(function () {
-//     Route::get('/dashboard/student', 'DashboardController@student')->name('dashboard.student');
-// });
-
-
 Route::get('/register', function () {
     return view('auth/register');
 })->middleware('guest');
@@ -83,9 +78,23 @@ Route::get('/admin/add-student', function () {
     return view('admin.student_add');
 })->middleware(['auth', 'role'])->name('a-createStudent');
 
-Route::get('/admin/student-requests', function () {
-    return view('admin.student_requests');
-})->middleware(['auth', 'role'])->name('a-showStudentRequests');
+// Route::get('/admin/student-requests', function () {
+//     return view('admin.student_requests');
+// })->middleware(['auth', 'role'])->name('a-showStudentRequests');
+
+Route::get('/admin/student-requests', [PendingController::class, 'index'])
+    ->middleware(['auth', 'role'])
+    ->name('a-showStudentRequests');
+
+    //route to accept a registration request, and create the student account
+Route::post('/admin/student-requests/{pending}/accept', [PendingController::class, 'accept'])
+    ->middleware(['auth', 'role'])
+    ->name('a-acceptStudentRequest');
+
+    //route to deny a registration request
+Route::delete('/admin/student-requests/{pending}', [PendingController::class, 'destroy'])
+    ->middleware(['auth', 'role'])
+    ->name('a-deleteStudentRequest');
 
 Route::get('/admin/admin-list', function () {
     return view('admin.admin_list');

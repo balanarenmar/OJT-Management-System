@@ -51,7 +51,7 @@ class RegisterController extends Controller
     {
         // dd($data);
         return Validator::make($data, [
-            'account_id' => ['required', 'string', 'size:15', 'unique:users'],
+            'account_id' => ['required', 'string', 'min:14', 'max:15', 'unique:users'],
             'first_name' => ['required', 'min:1', 'max:32'],
             'middle_initial ' =>['max:1'],
             'last_name' => ['required', 'min:1', 'max:32'],
@@ -62,7 +62,6 @@ class RegisterController extends Controller
             'password_confirmation' => ['required', 'min:8', 'same:password'], // 'same:password
 
             'account_type' => 'required',
-
         ]);
     }
 

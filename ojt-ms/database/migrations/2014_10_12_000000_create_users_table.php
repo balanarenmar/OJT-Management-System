@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('account_id', 32)->unique(); //'account_id' should be unique
             $table->string('first_name', 32);           
             $table->string('middle_initial', 1)->nullable(); 
-            $table->string('last_name', 32);            
-            $table->string('contact_number')->nullable();
+            $table->string('last_name', 32);
             $table->string('email')->unique();          
             $table->string('password');
             $table->enum('account_type', ['admin', 'student'])->default('student');

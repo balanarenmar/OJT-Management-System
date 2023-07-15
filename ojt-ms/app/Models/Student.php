@@ -11,17 +11,19 @@ class Student extends Model
     use HasApiTokens, HasFactory;
     protected $fillable = [
         'account_id',
-        'first_name',
-        'middle_initial',
-        'last_name',
+        'gender',
+
+        'contact',
         'email',
         'password',
         
-        'contact',
         'course',
         'block',
-        'gender',
-        'year_level'
-        
+        'year_level',
+
+        'company_id',
+        'status',
+        'hrs_rendered',
+        'hrs_remaining'
     ];
 }

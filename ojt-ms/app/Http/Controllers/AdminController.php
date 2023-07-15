@@ -18,26 +18,24 @@ class AdminController extends Controller
             'account_id' => $data['account_id'],
             'role' => $data['role']
         ]);
-
     }
 
     //validate admin registration form
     public function validateAdmin(Request $request) {
         return $request->validate(
             [
-                'account_id' => ['required', 'min:15', 'max:15', Rule::unique('admins', 'account_id')],
+                'account_id' => ['required', 'min:14', 'max:15', Rule::unique('admins', 'account_id')],
                 'role' => ['required', 'max:32']
             ]
         );
     }
 
-    //password
     //function to register a new USER admin
     public function registerAdmin(Request $request){
         
         //create user in database
          $userController = (new UserController);
-         $user =  $userController->addUser($request);
+         $userDetails =  $userController->addUser($request);
 
         //create admin in database
         //dd($request->all());

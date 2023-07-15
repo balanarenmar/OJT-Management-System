@@ -6,8 +6,9 @@ Software Requirements:
 - [ ] Registration / Login - 
     + [x] Student Account Login
     + [x] Admin Account Login
-    + [ ] Student Account Registration
+    + [x] Student Account Registration
     + [x] Admin Account Registration
+    + [ ] Admin: Student Acceptance
 - [ ] Profile Page
 - [ ] Document Requirements
     + [ ] Uploading
