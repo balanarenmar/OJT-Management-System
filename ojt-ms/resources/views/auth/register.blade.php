@@ -11,7 +11,11 @@
             <div class="col">
                 <form id="regForm" action="{{ route('registrationRequest') }}" method="POST">
                 @csrf
-                    <div class="all-steps" id="all-steps"> <span class="step"></span> <span class="step"></span> <span class="step"></span> </div>
+                    <div class="all-steps" id="all-steps">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
 
                         {{-- First Tab --}}
                         <div class="tab">
@@ -71,7 +75,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="tab">

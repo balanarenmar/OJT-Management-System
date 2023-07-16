@@ -117,7 +117,20 @@ class UserController extends Controller
         );
     }
 
-    
+    //function to create a User as a student
+    public function createStudentUser(array $data) {
+        return User::create([
+            'account_id' => $data['account_id'],
+            'first_name' => $data['first_name'],
+            'middle_initial' => $data['middle_initial'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'account_type' => 'student'
+        ]);
+    }
+
+
 
 
 

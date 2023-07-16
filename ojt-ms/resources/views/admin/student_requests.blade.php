@@ -9,6 +9,12 @@
                 </div>
                 <div class="card-body">
 
+                    @if(session('status') == 'success_delete')
+                        <div class="alert alert-success" role="alert">
+                            Request has been deleted successfully.
+                        </div>
+                    @endif
+
                     <table class="table">
                         <thead>
                             <tr>
@@ -42,10 +48,12 @@
                                             <form action="{{ route('a-deleteStudentRequest', $request->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                                <button type="submit" class="btn btn-danger btn-sm notifications" data-type="danger" data-from="top" data-align="right"><i class="fas fa-trash-alt"></i></button>
                                             </form>
                                         </div>
-                                        
+                                        {{-- <button class="btn notifications btn-danger" data-type="danger" data-from="top" data-align="right">Danger</button> --}}
+                                        <button class="btn notifications btn-primary" data-type="inverse" data-animation-in="animated fadeInUp" data-animation-out="animated fadeOutUp">Fade In Up</button>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -61,5 +69,23 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.min.js" integrity="sha512-vCgNjt5lPWUyLz/tC5GbiUanXtLX1tlPXVFaX5KAQrUHjwPcCwwPOLn34YBFqws7a7+62h7FRvQ1T0i/yFqANA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- <script src="{{ asset('able/js/plugins/bootstrap-notify.min.js') }}"></script> --}}
+    <script src="{{ asset('able/js/pages/ac-notification.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            if('{{ session('status') }}' == 'success_delete') {
+                $.notify({
+                    message: 'Request has been deleted successfully.'
+                },{
+                    type: 'success',
+                    placement: {
+                        from: 'top',
+                        align: 'right'
+                    }
+                });
+            }
+        });
+    </script>
 
 @endsection

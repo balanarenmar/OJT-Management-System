@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
 
 class PendingController extends Controller
 {
@@ -67,49 +68,25 @@ class PendingController extends Controller
 
     public function destroy(Pending $pending) {
         $pending->delete();
-        return redirect()->route('a-showStudentRequests')->with('success', 'Student request deleted successfully.');
+        return redirect()->route('a-showStudentRequests')->with('status', 'success_delete');
     }
 
 
     public function accept(Pending $pending) {
-        
-        // Create a new user record based on the pending request
-        $user = new User();
-        $user->account_id = $pending->account_id;
-        
-        $user->first_name = $pending->first_name;
-        $user->middle_initial = $pending->middle_initial;
-        $user->last_name = $pending->last_name;
-        
-        $user->email = $pending->email;
-        $user->password = $pending->password;
-        $user->account_type = 'student';
+        //create USER
+        $userController = (new UserController);
+        //dd($pending->toArray());
+        $userDetails =  $userController->createStudentUser($pending->toArray());
 
-
-        // Create a new student based on the pending request
-        $student = new Student();
-        $student->account_id = $pending->account_id;
-
-        $student->contact = $pending->contact;
-        $student->course = $pending->course;
-        $student->block = $pending->block;
-        $student->year_level = $pending->year_level;
-        $student->gender = $pending->gender;
-        $student->status = 'undeployed';        // Default status is 'undeployed'
-        $student->date_started = null;          // Default date_started is null
-        $student->date_completed = null;        // Default date_completed is null
-        $student->hrs_rendered = 0;             // Default hrs_rendered is 0
-        $student->hrs_remaining = 0;            // Default hrs_remaining is 0
-        
-        $student->save();
-
-        // $userController = (new UserController);
-        //$user =  $userController->createUser($pending);
-
+       //create STUDENT
+       //dd($request->all());
+       $studentController = (new StudentController);
+       $studentDetails = $studentController->createStudent($pending->toArray());
+       
         // Delete the pending request
         $pending->delete();
 
-        return redirect()->route('a-showStudentRequests')->with('success', 'Student request accepted and student created successfully.');
+        return redirect()->route('a-showStudentRequests')->with('status', 'success_accept');
 }
 
 

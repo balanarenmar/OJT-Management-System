@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->string('account_id')->primary();       //Primary and Foreign Key
-            $table->foreign('account_id')
-                    ->references('account_id')->on('users')
-                    ->onDelete('cascade'); // set cascade deletion
+             $table->foreign('account_id')
+                     ->references('account_id')->on('users')
+                     ->onDelete('cascade'); // set cascade deletion
 
-            $table->foreignId('company_id')->constrained('companies');
-            // $table->integer('company_id')->unsigned();
+            $table->foreignId('company_id')
+                    ->nullable()
+                    ->constrained('companies');
+            // $table->unsignedBigInteger('company_id');
             // $table->foreign('company_id')
             //         ->references('id')->on('companies');
 
@@ -28,11 +30,11 @@ return new class extends Migration
             $table->integer('year_level');
             $table->enum('gender', ['Male', 'Female']);
             
-            $table->enum('status', ['deployed', 'undeployed', 'finished'])->default('undeployed');
+            $table->enum('status', ['deployed', 'undeployed', 'completed'])->default('undeployed');
             $table->date('date_started')->nullable();
             $table->date('date_completed')->nullable();
-            $table->integer('hrs_rendered');
-            $table->integer('hrs_remaining');
+            $table->integer('hrs_rendered')->nullable();
+            $table->integer('hrs_remaining')->nullable();
             $table->timestamps();
         });
     }

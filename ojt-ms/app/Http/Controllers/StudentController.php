@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 
 class StudentController extends Controller
 {
     //function to create new Student
-    protected function createStudent(Request $studentDetails) {
+    public function createStudent(array $studentDetails) {
 
         return Student::create([
             'account_id' => $studentDetails['account_id'],
@@ -23,8 +24,7 @@ class StudentController extends Controller
             'date_started' => null,             // Default date_started is null
             'date_completed' => null,           // Default date_completed is null
             'hrs_rendered' => 0,                // Default hrs_rendered is 0
-            'hrs_remaining' => 0,
+            'hrs_remaining' => 240,               // Default hrs_remaining is 240
         ]);
-
     }
 }
