@@ -135,19 +135,6 @@
                 <i class="feather icon-more-vertical"></i>
             </a>
         </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
-                    <div class="search-bar">
-                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search">
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </li>
-            </ul>
-        </div>
     </header>   
     <!-- [ Header ] end -->
     
@@ -175,6 +162,8 @@
 <script src="{{ asset('able/js/pcoded.min.js') }}"></script>
 <script src="{{ asset('able/js/menu-setting.min.js') }}"></script>
 
+<script src="{{ asset('able/js/plugins/sweetalert.min.js') }}"></script>
+<script src="{{ asset('able/js/pages/ac-alert.js') }}"></script>
 
 @yield('scripts')
 

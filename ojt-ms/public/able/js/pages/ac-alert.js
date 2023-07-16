@@ -1,5 +1,29 @@
 'use strict';
 $(document).ready(function() {
+
+    // Custom sweet alerts:
+    $('.register-success').on('click', function() {
+        swal("Registration Success", "Please wait while your OJT Adviser activates your account", "success");
+    });
+
+    $('.student-add-success').on('click', function() {
+        swal("Student Added", "This student can now login", "success");
+    });
+
+    $('.register-deny').on('click', function() {
+        swal("Request Deleted", "Registration request denied", "warning");
+    });
+
+
+
+
+
+
+
+
+
+
+
     // [ sweet-basic ]
     $('.sweet-basic').on('click', function() {
         swal('Hello world!');

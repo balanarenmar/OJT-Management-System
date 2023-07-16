@@ -1,30 +1,30 @@
 'use strict';
-$(window).on('load', function() {
-    function notify(message, type) {
-        $.notify({
-            message: message
-        }, {
-            type: type,
-            allow_dismiss: false,
-            label: 'Cancel',
-            className: 'btn-xs btn-inverse',
-            placement: {
-                from: 'bottom',
-                align: 'right'
-            },
-            delay: 2500,
-            animate: {
-                enter: 'animated fadeInRight',
-                exit: 'animated fadeOutRight'
-            },
-            offset: {
-                x: 30,
-                y: 30
-            }
-        });
-    };
-    notify('Welcome to Notification page', 'inverse');
-});
+// $(window).on('load', function() {
+//     function notify(message, type) {
+//         $.notify({
+//             message: message
+//         }, {
+//             type: type,
+//             allow_dismiss: false,
+//             label: 'Cancel',
+//             className: 'btn-xs btn-inverse',
+//             placement: {
+//                 from: 'bottom',
+//                 align: 'right'
+//             },
+//             delay: 2500,
+//             animate: {
+//                 enter: 'animated fadeInRight',
+//                 exit: 'animated fadeOutRight'
+//             },
+//             offset: {
+//                 x: 30,
+//                 y: 30
+//             }
+//         });
+//     };
+//     notify('Welcome to Notification page', 'inverse');
+// });
 
 $(document).ready(function() {
     function notify(from, align, icon, type, animIn, animOut) {

@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 
@@ -38,7 +39,7 @@ class PendingController extends Controller
             'year_level' =>$data['year_level'],
         ]);
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Student added successfully');
+        return redirect()->back()->with('success', 'registration_pending');
     }
 
     public function validatePending(Request $request) {
@@ -68,9 +69,9 @@ class PendingController extends Controller
 
     public function destroy(Pending $pending) {
         $pending->delete();
-        return redirect()->route('a-showStudentRequests')->with('status', 'success_delete');
+        Session::flash('registration_deny', 'Student registration Denied!');
+        return redirect()->route('a-showStudentRequests', ['status' => 'success_delete']);
     }
-
 
     public function accept(Pending $pending) {
         //create USER
@@ -85,9 +86,13 @@ class PendingController extends Controller
        
         // Delete the pending request
         $pending->delete();
-
+        Session::flash('registration_accept', 'Student registration Approved!');
         return redirect()->route('a-showStudentRequests')->with('status', 'success_accept');
 }
+    public function test(){
+        Session::flash('success', 'This is a success message!');
+        return redirect()->back();
+    }
 
 
 

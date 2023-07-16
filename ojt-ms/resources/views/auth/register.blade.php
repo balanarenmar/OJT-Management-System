@@ -2,18 +2,18 @@
 @section('content')
 
 <div class="auth-side-form">
-    <div class=" auth-content">
+    <div class=" auth-content" >
         <img src="{{ asset('images/oms_logo.png') }}" alt="OMS Logo" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
         <h4 class="mb-3 f-w-400 "  >Sign up</h4>
 
-        <div style="width: 300px; height: 350px; " class="justify-content-center align-items-center">
+        <div style="width: 300px; height: automatic; " class="justify-content-center align-items-center">
 
             <div class="col">
                 <form id="regForm" action="{{ route('registrationRequest') }}" method="POST">
                 @csrf
                     <div class="all-steps" id="all-steps">
                         <span class="step"></span>
-                        <span class="step"></span>
+                        <span class="step"></span>  
                         <span class="step"></span>
                     </div>
 
@@ -22,7 +22,7 @@
                             <h5>Personal Details:</h5>
 
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <div class="form-group mb-3">
                                         <label class="floating-label" for="account_id">Student ID</label>
                                         <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="" maxlength="15" required>
@@ -41,7 +41,7 @@
                                 <div class="col-sm-8">
                                     <div class="form-group mb-3">
                                         <label class="floating-label" for="first_name">First Name</label>
-                                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="" maxlength="32">
+                                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="" maxlength="32" autocomplete="first_name">
                                         @error('first_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -75,6 +75,15 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-5"></div>
+                                <div class="col-5" >
+                                    <button class="btn btn-block has-ripple" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="tab">
@@ -106,13 +115,12 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group mb-3">
                                         <div class="form-outline">
                                             <label class="year_level" for="year_level">Year Level</label>
-                                            <input type="number" name="year_level" value="3" min="1" max="6"  class="form-control form-control-md" required>
+                                            <input type="number" name="year_level" id="year_level" value="3" min="1" max="6"  class="form-control form-control-md" required>
                                         </div>
                                     </div>
                                 </div>
@@ -120,12 +128,21 @@
                                     <div class="form-group mb-3">
                                         <div class="form-outline">
                                             <label class="form-label" for="gender">Gender:</label>
-                                            <select name="gender" class="form-control form-control-md">
+                                            <select name="gender" id="gender" class="form-control form-control-md">
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-5">
+                                    <button class="btn btn-block has-ripple" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                </div>
+                                <div class="col-5" >
+                                    <button class="btn btn-block has-ripple" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +167,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group mb-3">
                                         <label class="floating-label" for="email">Email address</label>
-                                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="">
+                                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="" autocomplete="email">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -185,26 +202,21 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-
-                        {{-- End of Tabs --}}
-                        <div class="row">
-                            <div class="col-2"></div>
-                            <div class="col-5">
-                                <button class="btn btn-block has-ripple" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                            </div>
-                            <div class="col-5" >
-                                <button class="btn btn-block has-ripple" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-5">
+                                    <button class="btn btn-block has-ripple" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                </div>
+                                <div class="col-5" >
+                                    <button class="btn btn-block has-ripple" type="submit" id="nextBtn">Submit</button>
+                                </div>
                             </div>
                         </div>
                         
-
                 </form>
             </div>
 
         </div>
-
         <div class="text-center">
             <div class="saprator my-4"><span>OR</span></div>
             <p class="mt-4">Already have an account? <a href="{{ __('login') }}" class="f-w-400">Signin</a></p>
@@ -220,25 +232,28 @@
 
 
     <script src="{{ asset('able/js/plugins/jquery.bootstrap.wizard.min.js') }}"></script>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
+    {{-- <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> --}}
+    {{-- <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> --}}
+    
 
     <script>
         var currentTab = 0;
-        document.addEventListener("DOMContentLoaded", function(event) {
-            showTab(currentTab);
-
-        });
+        showTab(currentTab);
+        // document.addEventListener("DOMContentLoaded", function(event) {
+        //     showTab(currentTab);
+        // });
 
         function showTab(n) {
             var x = document.getElementsByClassName("tab");
             x[n].style.display = "block";
+
+
             if (n == 0) {
                 document.getElementById("prevBtn").style.display = "none";
             } else {
                 document.getElementById("prevBtn").style.display = "inline";
             }
+
             if (n == (x.length - 1)) {
                 document.getElementById("nextBtn").innerHTML = "Submit";
                 document.getElementById("nextBtn").setAttribute("type", "submit");
@@ -250,35 +265,55 @@
         }
 
         function nextPrev(n) {
+            // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
+
+            console.log("Previous Tab:", currentTab);
+            console.log("Total Tabs:", x.length);
+            
+            // Exit the function if any field in the current tab is invalid:
             if (n == 1 && !validateForm()) return false;
+
+            // Hide the current tab:
             x[currentTab].style.display = "none";
+
             currentTab = currentTab + n;
-            if (currentTab >= x.length) {
-                document.getElementById("nextprevious").style.display = "none";
-                document.getElementById("all-steps").style.display = "none";
-                document.getElementById("register").style.display = "none";
-                document.getElementById("text-message").style.display = "block";
+
+            console.log("Current Tab:", currentTab);
+
+            if (currentTab > x.length) {
+                document.getElementById("regFormZX").submit();
+                return false;
+                // document.getElementById("nextprevious").style.display = "none";
+                // document.getElementById("all-steps").style.display = "none";
+                // document.getElementById("text-message").style.display = "block";
             }
             showTab(currentTab);
         }
+
 
         function validateForm() {
             var x, y, i, valid = true;
             x = document.getElementsByClassName("tab");
             y = x[currentTab].getElementsByTagName("input");
 
+             // A loop that checks every input field in the current tab:
             for (i = 0; i < y.length; i++) {
+
+                if (y[i].name === "middle_initial") {
+                    continue; // Skip the middle_initial input field
+                }
+                
                 if (y[i].value == "") {
-                y[i].classList.add("invalid");
-                valid = false;
+                    y[i].classList.add("invalid");
+                    valid = false;
                 } else {
-                y[i].classList.remove("invalid", "fade-out"); // Remove both classes
+                    y[i].classList.remove("invalid", "fade-out"); // Remove both classes
                 }
             }
 
             if (valid) {
-                document.getElementsByClassName("step")[currentTab].classList.add("finish");
+                document.getElementsByClassName("step")[currentTab].className += " finish";
             }
 
             // Apply the "fade-out" class after 2 seconds
@@ -294,11 +329,9 @@
                 });
                 }, 1000); // 1000 milliseconds = 1 second
             }, 2000); // 2000 milliseconds = 2 seconds
-
             return valid;
         }
-
-
+        
         function fixStepIndicator(n) {
             var i, x = document.getElementsByClassName("step");
             for (i = 0; i < x.length; i++) { x[i].className = x[i].className.replace(" active", ""); }
@@ -308,20 +341,16 @@
 
     <script>
         $(document).ready(function() {
-            
-            @if(session('success'))
-                $('#successModal').modal('show');
-            @endif
 
             $('input[name="confirm_password"]').keyup(function() {
             var password = $('input[name="password"]').val();
             var confirm_password = $(this).val();
 
             if (password !== confirm_password) {
-                // Set an error message or apply some visual indication
+                // Set an error message and apply some visual indication
                 $(this).addClass('is-invalid');
             } else {
-                // Clear the error message and remove any visual indication
+                // Clear the error
                 $(this).removeClass('is-invalid');
             }
             });

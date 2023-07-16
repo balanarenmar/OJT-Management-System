@@ -96,6 +96,10 @@ Route::delete('/admin/student-requests/{pending}', [PendingController::class, 'd
     ->middleware(['auth', 'role'])
     ->name('a-deleteStudentRequest');
 
+    Route::post('/admin/student-requests/{pending}/test', [PendingController::class, 'test'])
+    ->middleware(['auth', 'role'])
+    ->name('a-test');
+
 Route::get('/admin/admin-list', function () {
     return view('admin.admin_list');
 })->middleware(['auth', 'role'])->name('a-showAdminList');
