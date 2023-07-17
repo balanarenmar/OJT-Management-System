@@ -20,9 +20,6 @@ return new class extends Migration
             $table->foreignId('company_id')
                     ->nullable()
                     ->constrained('companies');
-            // $table->unsignedBigInteger('company_id');
-            // $table->foreign('company_id')
-            //         ->references('id')->on('companies');
 
             $table->string('contact')->nullable();
             $table->enum('course', ['BS Information Technology', 'BS Computer Science', 'BS Meteorology', 'BS Biology', 'BS Chemistry']);
@@ -35,6 +32,7 @@ return new class extends Migration
             $table->date('date_completed')->nullable();
             $table->integer('hrs_rendered')->nullable();
             $table->integer('hrs_remaining')->nullable();
+            
             $table->timestamps();
         });
     }

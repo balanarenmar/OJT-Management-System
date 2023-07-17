@@ -78,9 +78,6 @@ Route::get('/admin/add-student', function () {
     return view('admin.student_add');
 })->middleware(['auth', 'role'])->name('a-createStudent');
 
-// Route::get('/admin/student-requests', function () {
-//     return view('admin.student_requests');
-// })->middleware(['auth', 'role'])->name('a-showStudentRequests');
 
 Route::get('/admin/student-requests', [PendingController::class, 'index'])
     ->middleware(['auth', 'role'])
@@ -104,19 +101,23 @@ Route::get('/admin/admin-list', function () {
     return view('admin.admin_list');
 })->middleware(['auth', 'role'])->name('a-showAdminList');
 
-Route::get('/admin/admin-add', function () {
+Route::get('/admin/admin/add', function () {
     return view('admin.admin_add');
 })->middleware(['auth', 'role'])->name('a-createAdmin');
 
-Route::get('/admin/company-list', function () {
+Route::get('/admin/companies', function () {
     return view('admin.company_list');
 })->middleware(['auth', 'role'])->name('a-showCompanyList');
 
-Route::get('/admin/company-add', function () {  //TO ADD
+Route::get('/admin/companies/add', function () {  //TO ADD
     return view('admin.company_add');
 })->middleware(['auth', 'role'])->name('a-createCompany');
 
+// Route::get('/admin/companies/department/add', function () {  //TO ADD
+//     return view('admin.company_add');
+// })->middleware(['auth', 'role'])->name('a-createDepartment');
 
+// FORM ROUTES
 Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('registrationRequest');
 
 Route::post('/adminAdd', [AdminController::class, 'registerAdmin'])->name('adminAdd');;

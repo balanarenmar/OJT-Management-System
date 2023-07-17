@@ -5,7 +5,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Student Registration List</h3>
+                    <div class="row">
+                        <div class="col-8">
+                            <h3>Student Registration List</h3>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

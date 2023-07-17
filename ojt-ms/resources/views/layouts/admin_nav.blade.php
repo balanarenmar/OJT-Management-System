@@ -91,7 +91,8 @@
 						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Companies</span></a>
 						<ul class="pcoded-submenu">
 							<li><a href="{{route('a-showCompanyList')}}">Company List</a></li>
-							<li><a href="{{route('a-createAdmin')}}">Add a company</a></li>
+							<li><a href="{{route('a-createCompany')}}">Add a company</a></li>
+							<li><a href="{{route('a-createCompany')}}">Add a department</a></li>
 						</ul>
 					</li>
                  
@@ -145,7 +146,7 @@
             </div>
 
 			{{-- CONTENTS should start with row divs --}}
-			@yield('content')
+			@yield('content')	
 
         </div>
     </div>

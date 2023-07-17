@@ -31,163 +31,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>CSIT Department</td>
-                                <td>outside</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Research Office</td>
-                                <td>BU</td>
-                                <td>Rizal Street, Legazpi</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Library</td>
-                                <td>outside</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>BU</td>
-                                <td>Rizal Street, Legazpi</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>outside</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>BU</td>
-                                <td>Rizal Street, Legazpi</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>outside</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>BU</td>
-                                <td>Rizal Street, Legazpi</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>outside</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>BU</td>
-                                <td>Rizal Street, Legazpi</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>outside</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>BU</td>
-                                <td>Rizal Street, Legazpi</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                        </tbody>
+                            @foreach ($companies as $company)
+                                <tr>
+                                    <td>{{ $company->name }}</td>
+                                    <td>{{ $company->company_type }}</td>
+                                    <td>{{ $company->company_address_street}}, {{ $company->company_address_city}} {{ $company->company_address_province}}</td>
+                                    <td>{{ $company->contact }}</td>
+                                    <td>{{ $company->ojt_supervisor }}</td>
+                                    <td>{{ $company->department }}</td>
+                                    <td>{{ $company->deplyed_count}}</td>
+                                    <td>
+                                        <div class="row">
+                                            <form action="{{ route('a-deleteCompany', $company->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                     </table>
                 </div>
             </div>

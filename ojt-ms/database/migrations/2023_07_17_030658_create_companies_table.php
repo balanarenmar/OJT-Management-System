@@ -14,15 +14,20 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             
-            $table->enum('company_type', ['university', 'outside'])->default('university');
-            $table->string('company_name', 32);
-            $table->string('company_address', 32);
-            $table->string('company_contact', 32);
+            $table->enum('comp_type', ['university', 'outside'])->default('university');
+            $table->string('comp_name', 32);
+            $table->string('comp_address_street')->nullable();
+            $table->string('comp_address_city')->nullable();
+            $table->string('comp_address_province')->nullable();
+            $table->string('comp_contact', 32);
 
             $table->string('ojt_supervisor', 64);
-            $table->string('department', 32)->nullable();
-            $table->integer('deployed_count')->default(0);
 
+            $table->foreignId('department_id')
+                ->nullable()
+                ->constrained('offices');
+
+            $table->integer('students_deployed_count')->default(0);
             $table->timestamps();
         });
     }
