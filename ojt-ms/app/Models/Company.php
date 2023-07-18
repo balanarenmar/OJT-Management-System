@@ -10,13 +10,13 @@ class Company extends Model
 {
     use HasApiTokens, HasFactory;
     protected $fillable = [
-        'company_type',
-        'company_name',
-        'company_contact',
+        'comp_type',
+        'comp_name',
+        'comp_contact',
 
-        'company_address_street',
-        'company_address_city',
-        'company_address_province',
+        'comp_address_street',
+        'comp_address_city',
+        'comp_address_province',
 
         'ojt_supervisor',
         'department',

@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PendingController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +64,10 @@ Route::get('/student/company-list', function () {
     return view('student.company_list');
 })->middleware(['auth', 'role'])->name('s-showCompanyList');
 
-// ADMIN ROUTES
+
+//------------------------------------------------------//
+//                  ADMIN ROUTES                        //
+//------------------------------------------------------//
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'role'])->name('admin-dashboard');
@@ -70,9 +76,19 @@ Route::get('/admin/profile', function () {
     return view('admin.profile');
 })->middleware(['auth', 'role'])->name('a-profile');
 
+// Route::get('/admin/student-list', function () {
+//     return view('admin.student_list');
+// })->middleware(['auth', 'role'])->name('a-showStudentList');
+
 Route::get('/admin/student-list', function () {
     return view('admin.student_list');
 })->middleware(['auth', 'role'])->name('a-showStudentList');
+
+Route::resource('admin/student-list', StudentController::class)
+    ->middleware(['auth', 'role'])
+    ->names([
+        'index' => 'a-showStudentList',
+    ]);
 
 Route::get('/admin/add-student', function () {
     return view('admin.student_add');
@@ -109,9 +125,10 @@ Route::get('/admin/companies', function () {
     return view('admin.company_list');
 })->middleware(['auth', 'role'])->name('a-showCompanyList');
 
-Route::get('/admin/companies/add', function () {  //TO ADD
-    return view('admin.company_add');
-})->middleware(['auth', 'role'])->name('a-createCompany');
+
+Route::get('/admin/companies/add', [CompanyController::class, 'index'])
+    ->middleware(['auth', 'role'])
+    ->name('a-createCompany');
 
 // Route::get('/admin/companies/department/add', function () {  //TO ADD
 //     return view('admin.company_add');
@@ -120,7 +137,12 @@ Route::get('/admin/companies/add', function () {  //TO ADD
 // FORM ROUTES
 Route::post('/registrationRequest', [PendingController::class, 'createPending'])->name('registrationRequest');
 
-Route::post('/adminAdd', [AdminController::class, 'registerAdmin'])->name('adminAdd');;
+Route::post('/adminAdd', [AdminController::class, 'registerAdmin'])->name('adminAdd');
+
+Route::resource('offices', OfficeController::class);
+
+
+// Route::post('/admin/offices', [OfficeController::class, 'index']);
 
 //LARAVEL naming conventions
 //index, show, create, store, edit, update and delete

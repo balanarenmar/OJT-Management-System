@@ -26,4 +26,5 @@ class Student extends Model
         'hrs_rendered',
         'hrs_remaining'
     ];
+
 }

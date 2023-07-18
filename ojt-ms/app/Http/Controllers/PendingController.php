@@ -20,6 +20,11 @@ class PendingController extends Controller
         return view('post.create');
     }
 
+    public function index() {
+        $studentRequests = Pending::all();
+        return view('admin.student_requests', compact('studentRequests'));
+    }
+
     //function to create a Registration Request
     protected function createPending(Request $pendingDetails) {
         
@@ -62,10 +67,7 @@ class PendingController extends Controller
         return $incomingFields;
     }
 
-    public function index() {
-        $studentRequests = Pending::all();
-        return view('admin.student_requests', compact('studentRequests'));
-    }
+    
 
     public function destroy(Pending $pending) {
         $pending->delete();
@@ -93,8 +95,6 @@ class PendingController extends Controller
         Session::flash('success', 'This is a success message!');
         return redirect()->back();
     }
-
-
 
 
 }

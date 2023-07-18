@@ -23,10 +23,6 @@ return new class extends Migration
 
             $table->string('ojt_supervisor', 64);
 
-            $table->foreignId('department_id')
-                ->nullable()
-                ->constrained('offices');
-
             $table->integer('students_deployed_count')->default(0);
             $table->timestamps();
         });

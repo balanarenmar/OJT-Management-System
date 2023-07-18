@@ -17,10 +17,10 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table id="report-table" class="table table-bordered table-striped mb-0">
+                    <table id="" class="table table-bordered table-striped mb-0">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th scope="col">Name</th>
                                 <th>Company Type</th>
                                 <th>Address</th>
                                 <th>Contact</th>
@@ -32,24 +32,26 @@
                         </thead>
                         <tbody>
                             @foreach ($companies as $company)
-                                <tr>
-                                    <td>{{ $company->name }}</td>
-                                    <td>{{ $company->company_type }}</td>
-                                    <td>{{ $company->company_address_street}}, {{ $company->company_address_city}} {{ $company->company_address_province}}</td>
-                                    <td>{{ $company->contact }}</td>
-                                    <td>{{ $company->ojt_supervisor }}</td>
-                                    <td>{{ $company->department }}</td>
-                                    <td>{{ $company->deplyed_count}}</td>
-                                    <td>
-                                        <div class="row">
-                                            <form action="{{ route('a-deleteCompany', $company->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{ $company->comp_name }}</td>
+                                <td>{{ $company->comp_type }}</td>
+                                <td>{{ $company->comp_address_street}}, {{ $company->company_address_city}} {{ $company->company_address_province}}</td>
+                                <td>{{ $company->comp_contact }}</td>
+                                <td>{{ $company->ojt_supervisor }}</td>
+                                <td>{{ $company->department_id }}</td>
+                                <td>{{ $company->students_deployed_count}}</td>
+                                <td>
+                                    <div class="row">
+                                        <button type="button" class="btn btn-success btn-sm"><i class="fas fa-trash-alt"></i>Edit</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                        {{-- <form action="{{ route('a-deleteCompany', $company->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                        </form> --}}
+                                    </div>
+                                </td>
+                            </tr>
                             @endforeach
                     </table>
                 </div>

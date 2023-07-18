@@ -16,180 +16,33 @@
                         <button class="btn btn-success btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal-report"><i class="feather icon-plus"></i> Add Student</button>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    <table id="report-table" class="table table-bordered table-striped mb-0">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Roll</th>
-                                <th>Sex</th>
-                                <th>Birth Date</th>
-                                <th>Age</th>
-                                <th>Blood Group</th>
-                                <th>Options</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>patient@example.com</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>Joseph@example.com</td>
-                                <td>1234567</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>patient@example.com</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>Joseph@example.com</td>
-                                <td>1234567</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>patient@example.com</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>Joseph@example.com</td>
-                                <td>1234567</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>patient@example.com</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>Joseph@example.com</td>
-                                <td>1234567</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>patient@example.com</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>Joseph@example.com</td>
-                                <td>1234567</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanvir Hasan</td>
-                                <td>patient@example.com</td>
-                                <td>9876543</td>
-                                <td>female</td>
-                                <td>13/09/1994</td>
-                                <td>54</td>
-                                <td>o+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Joseph William</td>
-                                <td>Joseph@example.com</td>
-                                <td>1234567</td>
-                                <td>male</td>
-                                <td>09/10/1990</td>
-                                <td>27</td>
-                                <td>B+</td>
-                                <td>
-                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <div class="row">
+                    <div class="table-responsive m-3 pb-5">
+                        <table id="studentsTable" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Student Number </th>
+                                    {{-- <th>Company Id</th> --}}
+                                    <th>Contact</th>
+                                    <th>Course</th>
+                                    <th>Block</th>
+                                    <th>Year Level</th>
+                                    <th>Gender</th>
+                                    <th>Status</th>
+                                    <th>Date started</th>
+                                    <th>Hours Rendered</th>
+                                    <th>Hours Remaining</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+                
+                
             </div>
         </div>
     </div>
@@ -310,4 +163,35 @@
         $('#report-table').DataTable();
         // DataTable end
     </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var table = $('#studentsTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('a-showStudentList') }}",
+                columns: [
+                        {data: 'account_id', name: 'account_id'},
+                        {data: 'contact', name: 'contact'},
+                        {data: 'course', name: 'course'},
+                        {data: 'block', name: 'block'},
+                        {data: 'year_level', name: 'year_level'},
+                        {data: 'gender', name: 'gender'},
+                        {data: 'status', name: 'status'},
+                        {data: 'date_started', name: 'date_started'},
+                        {data: 'hrs_rendered', name: 'hrs_rendered'},
+                        {data: 'hrs_remaining', name: 'hrs_remaining'},
+                        {data: 'date_completed', name: 'date_completed'},
+                        // {data: 'action', name: 'action', orderable: false, searchable: false},
+                ]
+            });
+            });
+    </script>
 @endsection
+

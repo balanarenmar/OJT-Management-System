@@ -39,7 +39,6 @@
                                         <td>{{ $request->year_level }}</td>
                                         <td>
                                             <div class="row">
-
                                                 <form action="{{ route('a-acceptStudentRequest', $request->id) }}" method="POST" class="pr-1">
                                                     @csrf
                                                     <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-check-circle"></i></button>
