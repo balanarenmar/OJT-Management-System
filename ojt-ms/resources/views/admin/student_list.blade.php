@@ -42,7 +42,6 @@
                     </div>
                 </div>
                 
-                
             </div>
         </div>
     </div>
@@ -156,8 +155,8 @@
 
 
 @section('scripts')
-    <script src="{{ asset('able/js/plugins/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('able/js/plugins/dataTables.bootstrap4.min.js') }}"></script>
+    {{-- <script src="{{ asset('able/js/plugins/jquery.dataTables.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('able/js/plugins/dataTables.bootstrap4.min.js') }}"></script> --}}
     <script>
         // DataTable start
         $('#report-table').DataTable();

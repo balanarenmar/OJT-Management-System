@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('last_name', 32);
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('contact', 11);
             $table->enum('course', ['BS Information Technology', 'BS Computer Science', 'BS Meteorology', 'BS Biology', 'BS Chemistry']);
             $table->enum('block', ['A', 'B', 'C', 'D']);
             $table->enum('gender', ['Male', 'Female']);
