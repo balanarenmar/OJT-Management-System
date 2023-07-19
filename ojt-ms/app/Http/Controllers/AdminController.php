@@ -47,23 +47,46 @@ class AdminController extends Controller
     }
 
 
-    public function index()
-    {
-        if(\request()->ajax()){
-            $adminData = Admin::latest()->get();
-            $userData = User::latest()->get();
+    // public function index()
+    // {
+    //     if(\request()->ajax()){
+    //         $adminData = Admin::latest()->get();
+    //         // $mergedData = $adminData->merge($userData);  //full merge
+    //         return DataTables::of($adminData)
+    //             ->addIndexColumn()
+    //             ->addColumn('action', function($row){
+    //                 $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+    //                 return $actionBtn;
+    //             })
+    //             ->rawColumns(['action'])
+    //             ->make(true);
+    //     }
+    //     return view('admin.admin_list');
+    // }
 
-            return DataTables::of($adminData)
-                ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $actionBtn;
+    public function index(Request $request)
+    {
+        if ($request->ajax()) {
+            $admins = Admin::with('user')->get();
+    
+            return DataTables::of($admins)
+                ->addColumn('name', function ($admin) {
+                    return $admin->user->last_name . ', ' . $admin->user->first_name;
+                })
+                ->addColumn('action', function ($admin) {
+                    // Add any additional actions you want to display for each admin
+                    // For example, edit and delete buttons
+                    $editButton = '<a href="#" class="btn btn-sm btn-primary">Edit</a>';
+                    $deleteButton = '<a href="#" class="btn btn-sm btn-danger">Delete</a>';
+                    return $editButton . ' ' . $deleteButton;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
+    
         return view('admin.admin_list');
     }
+
 
 
 }
