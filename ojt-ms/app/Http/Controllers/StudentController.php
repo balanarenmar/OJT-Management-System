@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
@@ -29,15 +30,68 @@ class StudentController extends Controller
         ]);
     }
 
+    public function insertStudent(Request $request) {
+
+        //validate request
+        $validatedRequest = $this->validateInsert($request);
+        
+        $defaultPassword = 'BSCS-OMS';
+        $requestData = $request->toArray();
+
+        //hash the default password
+        $requestData['password'] = bcrypt($defaultPassword);
+        $requestData['account_type'] = 'student';
+
+        
+
+        dd($requestData);
+
+        //create USER
+        $userController = (new UserController);
+        $userDetails =  $userController->createStudentUser($requestData);
+
+       //create STUDENT
+       $studentDetails = $this->createStudent($requestData);
+    }
+
+    public function validateInsert(Request $request) {
+        $validatedRequest = $request->validate([
+                'account_id' => ['required', 'min:14', 'max:15', Rule::unique('users', 'account_id')],
+                'first_name' => ['required', 'min:1', 'max:32' ],
+                'middle_initial' => ['max:1'],
+                'last_name' => ['required', 'min:1', 'max:32'],
+                'contact' => ['required', 'min:11', 'max:11'],
+                'gender' => 'required',
+                'course' => 'required',
+                'block' => 'required',
+                'year_level' => 'required',
+                'email' => ['required', 'email', 'min:3', 'max:64', Rule::unique('users', 'email')],
+        ]);
+        return $validatedRequest;
+    }
+
+
+
     public function index()
     {
         if(\request()->ajax()){
-            $data = Student::latest()->get();
-            return DataTables::of($data)
+            $students = Student::with('user')->get();
+
+            return DataTables::of($students)
                 ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $actionBtn;
+                ->addColumn('name', function ($student) {
+                    return $student->user->last_name . ', ' . $student->user->first_name;
+                })
+                ->addColumn('standing', function ($student) {
+                    return $student->course . ', ' . $student->year_level . ' - ' . $student->block;
+                })
+                ->addColumn('hours', function ($student) {
+                    return $student->hrs_rendered . ' / ' . $student->hrs_remaining;
+                })
+                ->addColumn('action', function ($student) {
+                    $editButton = '<a href="#" class="btn btn-sm btn-primary">Edit</a>';
+                    $deleteButton = '<a href="#" class="btn btn-sm btn-danger">Delete</a>';
+                    return $editButton . ' ' . $deleteButton;
                 })
                 ->rawColumns(['action'])
                 ->make(true);

@@ -14,7 +14,7 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6 text-right">
-                        <button class="btn btn-success btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal-report"><i class="feather icon-plus"></i> Add Student</button>
+                        <button class="btn btn-success btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal-report"><i class="feather icon-plus"></i> Add Admin</button>
                     </div>
                 </div>
                 
@@ -158,24 +158,6 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    {{-- <script type="text/javascript">
-        $(function () {
-            var table = $('#adminsTable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('a-showAdminList') }}",
-                columns: [
-                        {data: 'account_id', name: 'account_id'},
-                        {data: 'role', name: 'role'},
-                        {data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
-                        },
-                ]
-            });
-            });
-    </script> --}}
 
     <script type="text/javascript">
         $(function () {

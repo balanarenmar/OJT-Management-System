@@ -113,9 +113,9 @@ Route::delete('/admin/student-requests/{pending}', [PendingController::class, 'd
     ->middleware(['auth', 'role'])
     ->name('a-test');
 
-// Route::get('/admin/admin-list', function () {
-//     return view('admin.admin_list');
-// })->middleware(['auth', 'role'])->name('a-showAdminList');
+    //route to directly create a new student, No pending required
+Route::post('/admin/student-list', [StudentController::class, 'insertStudent'])
+    ->name('a-insertStudent');
 
 Route::resource('admin/admin-list', AdminController::class)
     ->middleware(['auth', 'role'])

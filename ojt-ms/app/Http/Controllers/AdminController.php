@@ -46,24 +46,6 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'new ADMIN added successfully');
     }
 
-
-    // public function index()
-    // {
-    //     if(\request()->ajax()){
-    //         $adminData = Admin::latest()->get();
-    //         // $mergedData = $adminData->merge($userData);  //full merge
-    //         return DataTables::of($adminData)
-    //             ->addIndexColumn()
-    //             ->addColumn('action', function($row){
-    //                 $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-    //                 return $actionBtn;
-    //             })
-    //             ->rawColumns(['action'])
-    //             ->make(true);
-    //     }
-    //     return view('admin.admin_list');
-    // }
-
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -86,7 +68,5 @@ class AdminController extends Controller
     
         return view('admin.admin_list');
     }
-
-
 
 }

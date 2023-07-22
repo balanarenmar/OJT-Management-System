@@ -39,7 +39,7 @@ class UserController extends Controller
                 'role' => 'required',
                 'email' => ['required', 'email', 'min:3', 'max:64', Rule::unique('users', 'email')],
                 'password' => ['required', 'min:8', 'max:32'],
-                'password_confirmation' => ['required', 'min:8', 'max:32', 'same:password'],
+                'password_confirmation' => ['min:8', 'max:32', 'same:password'],
                 'account_type' => 'required',
             ]
         );
@@ -50,8 +50,6 @@ class UserController extends Controller
         $userDetails = $this->validateRegistration($request);
         //dd($userDetails);
         $user = $this->createUser($userDetails);
-        //return with modal success
-        //return redirect()->back()->with('success', 'new User added successfully');
     }
 
     public function validateLogin(Request $request) {
@@ -129,10 +127,5 @@ class UserController extends Controller
             'account_type' => 'student'
         ]);
     }
-
-
-
-
-
 
 }

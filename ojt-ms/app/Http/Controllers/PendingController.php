@@ -90,7 +90,7 @@ class PendingController extends Controller
         $pending->delete();
         Session::flash('registration_accept', 'Student registration Approved!');
         return redirect()->route('a-showStudentRequests')->with('status', 'success_accept');
-}
+    }
     public function test(){
         Session::flash('success', 'This is a success message!');
         return redirect()->back();

@@ -27,4 +27,8 @@ class Student extends Model
         'hrs_remaining'
     ];
 
+    public function user() {
+        return $this->belongsTo(User::class, 'account_id', 'account_id');
+    }
+    
 }
