@@ -30,27 +30,20 @@ class StudentController extends Controller
     }
 
     public function insertStudent(Request $request) {
-
-        //validate request
-        $validatedRequest = $this->validateInsert($request);
-        
+        $validatedRequest = $this->validateInsert($request);    //validate request
         $defaultPassword = 'BSCS-OMS';
         $requestData = $request->toArray();
 
         //hash the default password
         $requestData['password'] = bcrypt($defaultPassword);
-        $requestData['account_type'] = 'student';
-
-        
-
-        dd($requestData);
+        $requestData['account_type'] = 'student';   //  dd($requestData);
 
         //create USER
         $userController = (new UserController);
         $userDetails =  $userController->createStudentUser($requestData);
-
        //create STUDENT
        $studentDetails = $this->createStudent($requestData);
+       return redirect()->back()->with('success', 'new STUDENT added successfully');
     }
 
     public function validateInsert(Request $request) {

@@ -60,7 +60,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="account_id">Student Number</label>
-                                <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="">
+                                <input type="text" class="form-control @error('account_id') is-invalid @enderror" id="account_id" name="account_id" placeholder="" maxlength="15">
                                 @error('account_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -140,14 +140,15 @@
                                 <label class="floating-label" for="email">Email</label>
                                 <input type="email" id="email" name="email" class="form-control"/>
                             </div>
-                        </div>                       
+                        </div>
+                        
+                        {{-- <div class="col-12 pt-2">
+                            <h5>Optionals</h5>
+                        </div> --}}
+                        
                         <div class="col-sm-12">
                             <button class="btn btn-primary">Submit</button>
                             <button class="btn btn-danger">Clear</button>
-                        </div>
-
-                        <div class="col-12 pt-2">
-                            <h5>Optionals</h5>
                         </div>
 
                     </div>
@@ -156,7 +157,28 @@
         </div>
     </div>
 </div>
-<!-- [ Header Content ] end -->
+
+<!-- Modal start --> 
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Student added successfully!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end --> 
+
 @endsection
 
 
@@ -169,6 +191,9 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script type="text/javascript">
         $(function () {
             var table = $('#studentsTable').DataTable({
@@ -222,12 +247,22 @@
                 // Hide the error message when the input is clicked
                 const errorMessage = event.target.nextElementSibling;
                 errorMessage.style.display = 'none';
-
                 // Remove 'is-invalid' class from the input field
                 event.target.classList.remove('is-invalid');
             }
         });
     </script>
+
+    @if(Session::has('success'))
+    <script>
+        swal( {
+            title: "Success!",
+            text: "The Student been added Successfully.",
+            icon: "success",
+            button: "OK",
+        });
+    </script>
+    @endif
 
 @endsection
 
