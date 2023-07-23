@@ -2,7 +2,6 @@
 @section('content')
 
 <div class="row">
-    <!-- subscribe start -->
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
@@ -17,32 +16,29 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="table-responsive m-3 pb-5">
-                        <table id="studentsTable" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Student Number </th>
-                                    {{-- <th>Company Id</th> --}}
-                                    <th>Name</th>
-                                    <th>Standing</th>
-                                    <th>Gender</th>
-                                    <th>Status</th>
-                                    <th>Date started</th>
-                                    <th>Hours Rendered</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="table-responsive ">
+                    <table id="studentsTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Student Number </th>
+                                {{-- <th>Company Id</th> --}}
+                                <th>Name</th>
+                                <th>Standing</th>
+                                <th>Gender</th>
+                                <th>Status</th>
+                                <th>Date started</th>
+                                <th>Hours Rendered</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
                 
             </div>
         </div>
     </div>
-    <!-- subscribe end -->
 </div>
 
 <div class="modal fade" id="modal-add-student" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
@@ -61,7 +57,6 @@
                         <div class="col-12 pt-2">
                             <h5>Personal Information</h5>
                         </div>
-
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="account_id">Student Number</label>
@@ -74,7 +69,6 @@
                             </div>
                         </div>
                         <div class="col-sm-6"></div>
-
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <label class="floating-label" for="first_name">First Name</label>
@@ -94,19 +88,15 @@
                             </div>
                         </div>
 
-                        
-                        
                         <div class="col-12 pt-2">
                             <h5>Other Information</h5>
                         </div>
-
                         <div class="col-sm-6">
                             <div class="form-group fill">
                                 <label class="floating-label" for="contact">Contact Number</label>
                                 <input type="number" class="form-control" id="contact" name="contact">
                             </div>
                         </div>
-                        
                         <div class="col-sm-6">
                             <div class="form-group fill">
                                 <label class="floating-label" for="gender">Gender</label>
@@ -117,7 +107,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="course">Course</label>
@@ -131,7 +120,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="floating-label" for="block">Block</label>
@@ -147,18 +135,21 @@
                                 <input type="number" name="year_level" value="3" min="3" max="6"  class="form-control form-control-md" required>
                             </div>
                         </div>
-
                         <div class="col-sm-12">
                             <div class="form-group fill">
                                 <label class="floating-label" for="email">Email</label>
                                 <input type="email" id="email" name="email" class="form-control"/>
                             </div>
-                        </div>
-                       
+                        </div>                       
                         <div class="col-sm-12">
                             <button class="btn btn-primary">Submit</button>
                             <button class="btn btn-danger">Clear</button>
                         </div>
+
+                        <div class="col-12 pt-2">
+                            <h5>Optionals</h5>
+                        </div>
+
                     </div>
                 </form>
             </div>
@@ -170,8 +161,8 @@
 
 
 @section('scripts')
-    {{-- <script src="{{ asset('able/js/plugins/jquery.dataTables.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('able/js/plugins/dataTables.bootstrap4.min.js') }}"></script> --}}
+    <script src="{{ asset('able/js/plugins/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('able/js/plugins/dataTables.bootstrap4.min.js') }}"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -192,13 +183,7 @@
                         {data: 'status', name: 'status'},
                         {data: 'date_started', name: 'date_started'},
                         {data: 'hours', name: 'hours'},
-                        {data: 'date_completed', name: 'date_completed'},
-                        // {data: 'action', name: 'action', orderable: false, searchable: false}
-                        // {data: 'action',
-                        //     name: 'action',
-                        //     orderable: false,
-                        //     searchable: false
-                        // },
+                        {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
             });
@@ -228,14 +213,6 @@
         });
     </script>
     @endif
-
-    {{-- <script type="text/javascript">
-        // Add click event listener to the input field
-        document.getElementById('account_id').addEventListener('click', function () {
-            // Hide the error message when the input is clicked
-            this.nextElementSibling.style.display = 'none';
-        });
-    </script> --}}
 
     <!-- JavaScript to hide error messages and remove 'is-invalid' class on click -->
     <script type="text/javascript">

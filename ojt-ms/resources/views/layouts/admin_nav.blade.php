@@ -17,10 +17,8 @@
     <link rel="icon" href={{ asset('able/images/OMS.svg') }} type="image/x-icon">
 
     <link rel="stylesheet" href={{ asset('able/css/able.css') }}>
-
 	<link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet"> 
-
-	{{-- <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
+	<link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
     
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
@@ -158,8 +156,6 @@
     <!-- [ Main Content ] end -->
 
 <!-- Required Js -->
-{{-- <script type="text/javascript" src="{{ URL::asset('assets/js/jquery.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('assets/js/bootstrap.min.js') }}"></script> --}}
 
 <script src="{{ asset('able/js/vendor-all.min.js') }}"></script>
 <script src="{{ asset('able/js/plugins/bootstrap.min.js') }}"></script>

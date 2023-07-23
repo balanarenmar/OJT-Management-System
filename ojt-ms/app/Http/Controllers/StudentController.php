@@ -21,12 +21,11 @@ class StudentController extends Controller
             'block' => $studentDetails['block'],
             'year_level' => $studentDetails['year_level'],
             'gender' => $studentDetails['gender'],
-
             'status' => 'undeployed',   
             'date_started' => null,             // Default date_started is null
             'date_completed' => null,           // Default date_completed is null
             'hrs_rendered' => 0,                // Default hrs_rendered is 0
-            'hrs_remaining' => 240,               // Default hrs_remaining is 240
+            'hrs_remaining' => 240,             // Default hrs_remaining is 240
         ]);
     }
 
@@ -71,7 +70,7 @@ class StudentController extends Controller
     }
 
 
-
+    //DataTables for Students
     public function index()
     {
         if(\request()->ajax()){

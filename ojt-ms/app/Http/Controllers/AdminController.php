@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -46,6 +45,7 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'new ADMIN added successfully');
     }
 
+    //Admin DataTable
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -56,8 +56,6 @@ class AdminController extends Controller
                     return $admin->user->last_name . ', ' . $admin->user->first_name;
                 })
                 ->addColumn('action', function ($admin) {
-                    // Add any additional actions you want to display for each admin
-                    // For example, edit and delete buttons
                     $editButton = '<a href="#" class="btn btn-sm btn-primary">Edit</a>';
                     $deleteButton = '<a href="#" class="btn btn-sm btn-danger">Delete</a>';
                     return $editButton . ' ' . $deleteButton;
