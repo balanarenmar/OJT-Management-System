@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentRecordController;
 
 class StudentController extends Controller
 {
@@ -41,8 +42,12 @@ class StudentController extends Controller
         //create USER
         $userController = (new UserController);
         $userDetails =  $userController->createStudentUser($requestData);
-       //create STUDENT
-       $studentDetails = $this->createStudent($requestData);
+        //create STUDENT
+        $studentDetails = $this->createStudent($requestData);
+        //create STUDENT RECORD
+        $studentRecordController = (new StudentRecordController);
+        $studentRecordDetails = $studentRecordController->createStudentRecord($requestData);
+
        return redirect()->back()->with('success', 'new STUDENT added successfully');
     }
 

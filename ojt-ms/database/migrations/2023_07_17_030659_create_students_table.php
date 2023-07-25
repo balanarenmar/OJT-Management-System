@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->string('account_id')->primary();       //Primary and Foreign Key
-             $table->foreign('account_id')
+            $table->foreign('account_id')
                      ->references('account_id')->on('users')
                      ->onDelete('cascade'); // set cascade deletion
 

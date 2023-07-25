@@ -7,7 +7,6 @@ Steps:
 - Make sure to install [composer](https://getcomposer.org/download/) (we suggest a global installation).
     + If  you are using XAMPP, make sure to search ";extension=zip". Remove the semicolon [;] to enable the extension.
     + Inside the folder ojt-ms, open a terminal and run ``composer install``.
-- run ``php artisan serve`` to start the server
 
 - In the .env file, connect the database by properly setting up the username and password.
     + Create a database called ojt_ms in your desired environment. For example, when using mysql:
@@ -17,6 +16,9 @@ Steps:
     DB_DATABASE=ojt_ms
     DB_USERNAME=root
     DB_PASSWORD=password
+
+- XAMPP control panel, start Apache, then the MySql module.
+- run ``php artisan serve`` to start the server
 
 Software Requirements:
 - [ ] Registration / Login - 

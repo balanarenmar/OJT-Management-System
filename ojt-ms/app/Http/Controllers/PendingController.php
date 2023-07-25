@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentRecordController;
 
 class PendingController extends Controller
 {
@@ -67,7 +68,6 @@ class PendingController extends Controller
         return $incomingFields;
     }
 
-    
 
     public function destroy(Pending $pending) {
         $pending->delete();
@@ -78,14 +78,18 @@ class PendingController extends Controller
     public function accept(Pending $pending) {
         //create USER
         $userController = (new UserController);
-        //dd($pending->toArray());
-        $userDetails =  $userController->createStudentUser($pending->toArray());
+        $requestData = $pending->toArray();
+        
+        $userDetails =  $userController->createStudentUser($requestData);
 
        //create STUDENT
        //dd($request->all());
        $studentController = (new StudentController);
-       $studentDetails = $studentController->createStudent($pending->toArray());
-       
+       $studentDetails = $studentController->createStudent($requestData);
+       //create STUDENT RECORD
+       $studentRecordController = (new StudentRecordController);
+       $studentRecordDetails = $studentRecordController->createStudentRecord($requestData);
+
         // Delete the pending request
         $pending->delete();
         Session::flash('registration_accept', 'Student registration Approved!');
@@ -95,6 +99,5 @@ class PendingController extends Controller
         Session::flash('success', 'This is a success message!');
         return redirect()->back();
     }
-
 
 }

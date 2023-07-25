@@ -14,7 +14,7 @@ class UserController extends Controller
         return view('post.create');
     }
 
-    //function to create a User
+    //create user in database
     public function createUser(array $data) {
         return User::create([
             'account_id' => $data['account_id'],
@@ -46,9 +46,9 @@ class UserController extends Controller
         return $validatedRequest;
     }
 
+    //function to create a new User
     public function addUser(Request $request) {
         $userDetails = $this->validateRegistration($request);
-        //dd($userDetails);
         $user = $this->createUser($userDetails);
     }
 

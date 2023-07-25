@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\StudentRecord;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,6 +30,10 @@ class Student extends Model
 
     public function user() {
         return $this->belongsTo(User::class, 'account_id', 'account_id');
+    }
+
+    public function studentrecord() {
+        return $this->hasOne(StudentRecord::class, 'student_id');
     }
     
 }

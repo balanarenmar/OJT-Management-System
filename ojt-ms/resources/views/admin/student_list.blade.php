@@ -72,19 +72,34 @@
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <label class="floating-label" for="first_name">First Name</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="">
+                                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="">
+                                @error('first_name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="floating-label" for="middle_initial">Middle Initial</label>
-                                <input type="text" class="form-control" id="middle_initial" name="middle_initial" placeholder="">
+                                <input type="text" class="form-control @error('middle_initial') is-invalid @enderror" id="middle_initial" name="middle_initial" placeholder="">
+                                @error('middle_initial')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <label class="floating-label" for="last_name">Last Name</label>
-                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="">
+                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="">
+                                @error('last_name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -94,14 +109,18 @@
                         <div class="col-sm-6">
                             <div class="form-group fill">
                                 <label class="floating-label" for="contact">Contact Number</label>
-                                <input type="number" class="form-control" id="contact" name="contact">
+                                <input type="number" class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact">
+                                @error('contact')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group fill">
                                 <label class="floating-label" for="gender">Gender</label>
                                 <select name="gender" class="form-control">
-                                    <option value=""></option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
@@ -110,8 +129,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="course">Course</label>
-                                <select class="form-control" id="course" name="course">
-                                    <option value=""></option>
+                                <select class="form-control @error('course') is-invalid @enderror" id="course" name="course">
                                     <option value="BS Information Technology">BS Information Technology</option>
                                     <option value="BS Computer Science">BS Computer Science</option>
                                     <option value="BS Meteorology">BS Meteorology</option>
@@ -123,7 +141,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="floating-label" for="block">Block</label>
-                                <select class="form-control" id="block" name="block">
+                                <select class="form-control @error('block') is-invalid @enderror" id="block" name="block">
                                     <option value="A">A</option>
                                     <option value="B">B</option>
                                 </select>
@@ -132,13 +150,23 @@
                         <div class="col-sm-3">
                             <div class="form-group fill">
                                 <label class="floating-label" for="year_level">Year Level</label>
-                                <input type="number" name="year_level" value="3" min="3" max="6"  class="form-control form-control-md" required>
+                                <input type="number" name="year_level" value="3" min="3" max="4"  class="form-control form-control-md @error('year_level') is-invalid @enderror">
+                                @error('year_level')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group fill">
                                 <label class="floating-label" for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control"/>
+                                <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"/>
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         
