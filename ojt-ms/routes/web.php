@@ -123,6 +123,10 @@ Route::resource('admin/admin-list', AdminController::class)
         'index' => 'a-showAdminList',
     ]);
 
+    //route to delete a student
+    Route::delete('/delete-student/{id}', [StudentController::class, 'deleteStudent'])->name('delete-student');
+
+
 
 
 Route::get('/admin/admin/add', function () {

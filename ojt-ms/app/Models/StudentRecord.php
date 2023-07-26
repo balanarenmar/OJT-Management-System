@@ -12,6 +12,7 @@ class StudentRecord extends Model
     use HasApiTokens, HasFactory;
     protected $fillable = [
         'student_id',
+        
         'medcert_is_submitted', 'medcert_file_path',
         'jurat_is_submitted', 'jurat_file_path',
         'waver_is_submitted', 'waver_file_path',

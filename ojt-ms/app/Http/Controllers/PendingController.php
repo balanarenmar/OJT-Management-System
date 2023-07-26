@@ -83,7 +83,6 @@ class PendingController extends Controller
         $userDetails =  $userController->createStudentUser($requestData);
 
        //create STUDENT
-       //dd($request->all());
        $studentController = (new StudentController);
        $studentDetails = $studentController->createStudent($requestData);
        //create STUDENT RECORD

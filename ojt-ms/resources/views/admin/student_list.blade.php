@@ -239,8 +239,87 @@
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
+
+            $('#studentsTable').on('click', '.delete-student-btn', function (e) {
+            e.preventDefault();
+            var studentId = $(this).data('id');
+            
+            swal({
+                title: "Warning!",
+                text: "Are you sure you want to remove this student?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete"],
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    // If user confirms, perform the delete request via AJAX
+                    $.ajax({
+                        url: '/delete-student/' + studentId, 
+                        type: 'DELETE',
+                        data: { _token: '{{ csrf_token() }}', },
+                        success: function (response) {
+                            if (response.success) {
+                                // Reload the DataTables table after successful deletion
+                                table.ajax.reload();
+                                swal("Deleted!", "Student has been deleted.", "success");
+                            } else {
+                                swal("Error!", "Failed to delete student.", "error");
+                            }
+                        },
+                        error: function () {
+                            swal("Error!", "Something went wrong", "error");
+                        },
+                    });
+                }
             });
+        });
+
+        });
     </script>
+
+{{-- <script>
+    $(document).on('click', '.delete-student', function () {
+        var studentId = $(this).data('account_id');
+
+        console.log('Student ID:', studentId);
+
+        swal({
+            title: "Warning!",
+            text: "Are you sure you want to remove this student?",
+            icon: "warning",
+            buttons: ["Cancel", "Delete"],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                deleteStudent(studentId);
+            }
+        });
+    });
+
+    function deleteStudent(studentId) {
+        // Use AJAX to send the request to the delete route in the controller
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('a-deleteStudent') }}",
+            data: {
+                _token: '{{ csrf_token() }}',
+                student_id: studentId,
+            },
+            success: function (response) {
+                // Handle the success response, e.g., show a success message
+                swal("Success!", response.message, "success");
+                // You can also update the DataTable to reflect the changes
+                // For example, you can reload the table to show the updated data
+                table.ajax.reload();
+            },
+            error: function (error) {
+                // Handle the error response, e.g., show an error message
+                swal("Error!", "Failed to delete the student.", "error");
+            }
+        });
+    }
+</script> --}}
 
     <script>        
           $("#course").change(function() {
@@ -291,6 +370,8 @@
         });
     </script>
     @endif
+
+
 
 @endsection
 

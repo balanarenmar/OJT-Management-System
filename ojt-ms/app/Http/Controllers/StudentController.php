@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -11,7 +12,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentRecordController;
 
 class StudentController extends Controller
-{
+{   
+    protected $userController;
+    public function __construct(UserController $userController) {
+        $this->userController = $userController;
+    }
+
     //function to create new Student
     public function createStudent(array $studentDetails) {
 
@@ -67,6 +73,22 @@ class StudentController extends Controller
         return $validatedRequest;
     }
 
+    public function deleteStudent($account_id) {
+        try {
+        $student = Student::where('account_id', $account_id)->first();
+        if (!$student) {
+            return response()->json(['success' => false, 'error' => 'Student not found'], 404);
+        }
+        
+        $user = User::where('account_id', $account_id)->first();
+        if ($user->delete()) {
+            return response()->json(['success' => true, 'message' => 'Student has been deleted'], 200);
+        }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'error' => 'Something went wrong'], 500);
+        }
+    }
+
 
     //DataTables for Students
     public function index()
@@ -87,7 +109,7 @@ class StudentController extends Controller
                 })
                 ->addColumn('action', function ($student) {
                     $editButton = '<a href="#" class="btn btn-sm btn-primary">Edit</a>';
-                    $deleteButton = '<a href="#" class="btn btn-sm btn-danger">Delete</a>';
+                    $deleteButton = '<button class="btn btn-sm btn-danger delete-student-btn" data-id="' . $student->account_id . '">Delete</button>';
                     return $editButton . ' ' . $deleteButton;
                 })
                 ->rawColumns(['action'])

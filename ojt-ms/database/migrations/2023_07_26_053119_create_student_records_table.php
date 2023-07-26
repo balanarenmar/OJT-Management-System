@@ -19,46 +19,53 @@ return new class extends Migration
                      ->references('account_id')->on('students')
                      ->onDelete('cascade'); // set cascade deletion
 
-            // $table->foreignId('document_id')
-            //          ->nullable()
-            //          ->constrained('documents')
-            //          ->onDelete('cascade'); // set cascade deletion
-
             $table->boolean('medcert_is_submitted')->default(false);
             $table->string('medcert_file_path', 255)->nullable()->default(null);
+            $table->string('medcert_file_name', 140)->nullable()->default(null);
 
             $table->boolean('jurat_is_submitted')->default(false);
             $table->string('jurat_file_path', 255)->nullable()->default(null);
+            $table->string('jurat_file_name', 140)->nullable()->default(null);
 
-            $table->boolean('waver_is_submitted')->default(false);
-            $table->string('waver_file_path', 255)->nullable()->default(null);
+            $table->boolean('waiver_is_submitted')->default(false);
+            $table->string('waiver_file_path', 255)->nullable()->default(null);
+            $table->string('waiver_file_name', 140)->nullable()->default(null);
 
             $table->boolean('acceptance_is_submitted')->default(false);
             $table->string('acceptance_file_path', 255)->nullable()->default(null);
+            $table->string('acceptance_file_name', 140)->nullable()->default(null);
 
             $table->boolean('mentorship_is_submitted')->default(false);
             $table->string('mentorship_file_path', 255)->nullable()->default(null);
+            $table->string('mentorship_file_name', 140)->nullable()->default(null);
 
             $table->boolean('moa_is_submitted')->default(false);
             $table->string('moa_file_path', 255)->nullable()->default(null);
+            $table->string('moa_file_name', 140)->nullable()->default(null);
 
             $table->boolean('loi_is_submitted')->default(false);
             $table->string('loi_file_path', 255)->nullable()->default(null);
+            $table->string('loi_file_name', 140)->nullable()->default(null);
 
             $table->boolean('vaxcard_is_submitted')->default(false);
             $table->string('vaxcard_file_path', 255)->nullable()->default(null);
+            $table->string('vaxcard_file_name', 140)->nullable()->default(null);
 
             $table->boolean('cor_is_submitted')->default(false);
             $table->string('cor_file_path', 255)->nullable()->default(null);
+            $table->string('cor_file_name', 140)->nullable()->default(null);
             
             $table->boolean('blog_is_submitted')->default(false);
             $table->string('blog_file_path', 255)->nullable()->default(null);
+            $table->string('blog_file_name', 140)->nullable()->default(null);
 
             $table->boolean('weekly_is_submitted')->default(false);
             $table->string('weekly_file_path', 255)->nullable()->default(null);
+            $table->string('weekly_file_name', 140)->nullable()->default(null);
 
             $table->boolean('portfolio_is_submitted')->default(false);
             $table->string('portfolio_file_path', 255)->nullable()->default(null);
+            $table->string('portfolio_file_name', 255)->nullable()->default(null);
 
             $table->timestamps();
         });
