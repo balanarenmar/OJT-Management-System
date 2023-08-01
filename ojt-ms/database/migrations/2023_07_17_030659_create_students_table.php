@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('year_level');
             $table->enum('gender', ['Male', 'Female']);
             
-            $table->enum('status', ['deployed', 'undeployed', 'completed'])->default('undeployed');
+            $table->enum('status', ['Deployed', 'Undeployed', 'Completed'])->default('undeployed');
             $table->date('date_started')->nullable();
             $table->date('date_completed')->nullable();
             $table->integer('hrs_rendered')->nullable();

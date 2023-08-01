@@ -13,10 +13,10 @@ use App\Http\Controllers\StudentRecordController;
 
 class StudentController extends Controller
 {   
-    protected $userController;
-    public function __construct(UserController $userController) {
-        $this->userController = $userController;
-    }
+    // protected $userController;
+    // public function __construct(UserController $userController) {
+    //     $this->userController = $userController;
+    // }
 
     //function to create new Student
     public function createStudent(array $studentDetails) {
@@ -91,8 +91,7 @@ class StudentController extends Controller
 
 
     //DataTables for Students
-    public function index()
-    {
+    public function index() {
         if(\request()->ajax()){
             $students = Student::with('user')->get();
 
@@ -102,13 +101,13 @@ class StudentController extends Controller
                     return $student->user->last_name . ', ' . $student->user->first_name;
                 })
                 ->addColumn('standing', function ($student) {
-                    return $student->course . ', ' . $student->year_level . ' - ' . $student->block;
+                    return $student->year_level . ' - ' . $student->block;
                 })
                 ->addColumn('hours', function ($student) {
                     return $student->hrs_rendered . ' / ' . $student->hrs_remaining;
                 })
                 ->addColumn('action', function ($student) {
-                    $editButton = '<a href="#" class="btn btn-sm btn-primary">Edit</a>';
+                    $editButton = '<a href="#" class="btn btn-sm btn-primary edit-student" data-id="{{ $student->id }}">Edit</a>';
                     $deleteButton = '<button class="btn btn-sm btn-danger delete-student-btn" data-id="' . $student->account_id . '">Delete</button>';
                     return $editButton . ' ' . $deleteButton;
                 })

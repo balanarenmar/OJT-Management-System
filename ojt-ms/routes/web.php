@@ -7,6 +7,7 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PendingController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DocumentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,13 +77,19 @@ Route::get('/admin/profile', function () {
     return view('admin.profile');
 })->middleware(['auth', 'role'])->name('a-profile');
 
+// Route::get('/admin/documents', function () {
+//     return view('admin.documents');
+// })->middleware(['auth', 'role'])->name('a-documents');
+
+Route::resource('/admin/documents', DocumentController::class)
+    ->middleware(['auth', 'role'])
+    ->names([
+        'index' => 'a-documents',
+    ]);
+
 // Route::get('/admin/student-list', function () {
 //     return view('admin.student_list');
-// })->middleware(['auth', 'role'])->name('a-showStudentList');
-
-Route::get('/admin/student-list', function () {
-    return view('admin.student_list');
-})->middleware(['auth', 'role'])->name('a-showStudentList');
+// })->middleware(['auth', 'role'])->name('a-showStudentListWASASD');
 
 Route::resource('admin/student-list', StudentController::class)
     ->middleware(['auth', 'role'])
@@ -93,7 +100,6 @@ Route::resource('admin/student-list', StudentController::class)
 Route::get('/admin/add-student', function () {
     return view('admin.student_add');
 })->middleware(['auth', 'role'])->name('a-createStudent');
-
 
 Route::get('/admin/student-requests', [PendingController::class, 'index'])
     ->middleware(['auth', 'role'])
@@ -117,6 +123,8 @@ Route::delete('/admin/student-requests/{pending}', [PendingController::class, 'd
 Route::post('/admin/student-list', [StudentController::class, 'insertStudent'])
     ->name('a-insertStudent');
 
+Route::post('/admin/documents', [DocumentController::class, 'addDocument'])->name('a-addDocument');
+
 Route::resource('admin/admin-list', AdminController::class)
     ->middleware(['auth', 'role'])
     ->names([
@@ -124,8 +132,10 @@ Route::resource('admin/admin-list', AdminController::class)
     ]);
 
     //route to delete a student
-    Route::delete('/delete-student/{id}', [StudentController::class, 'deleteStudent'])->name('delete-student');
+Route::delete('/delete-student/{id}', [StudentController::class, 'deleteStudent'])->name('delete-student');
 
+    //route to delete a document
+Route::delete('/delete-document/{id}', [DocumentController::class, 'deleteDocument'])->name('delete-document');
 
 
 

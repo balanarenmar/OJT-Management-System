@@ -17,10 +17,15 @@
     <link rel="icon" href={{ asset('able/images/OMS.svg') }} type="image/x-icon">
 
     <link rel="stylesheet" href={{ asset('able/css/able.css') }}>
-	<link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet"> 
-	<link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+	
+	{{-- datatables cdn --}}
+	<link href="https://cdn.datatables.net/v/bs4/jq-3.7.0/dt-1.13.5/r-2.5.0/datatables.min.css" rel="stylesheet">
     
-    <!-- Scripts -->
+	{{-- sweetalert2 cdn --}}
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+
+	<!-- Scripts --> 	
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
 </head>
@@ -72,11 +77,14 @@
 						<a href="{{route('a-profile')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check-square"></i></span><span class="pcoded-mtext">Profile</span></a>
 					</li>
 
+					<li class="nav-item">
+						<a href="{{route('a-documents')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Documents</span></a>
+					</li>
+
                     <li class="nav-item pcoded-hasmenu">
 						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Students</span></a>
 						<ul class="pcoded-submenu">
 							<li><a href="{{route('a-showStudentList')}}">Student List</a></li>
-							<li><a href="{{route('a-createStudent')}}">Add Student</a></li>
 							<li><a href="{{route('a-showStudentRequests')}}">Registration Requests</a></li>
 						</ul>
 					</li>
@@ -165,6 +173,14 @@
 
 <script src="{{ asset('able/js/plugins/sweetalert.min.js') }}"></script>
 <script src="{{ asset('able/js/pages/ac-alert.js') }}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
+<script src="https://cdn.datatables.net/v/bs4/jq-3.7.0/dt-1.13.5/r-2.5.0/datatables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
 
 @yield('scripts')
 

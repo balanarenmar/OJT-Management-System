@@ -1975,7 +1975,7 @@ pre code {
 }
 
 .table {
-    width: 100%;
+    width: 100% !important; 
     margin-bottom: 1rem;
     color: #373a3c;
 }
@@ -33517,3 +33517,12 @@ new-task label input[type=checkbox] {
     color: #009BDE;
 }
 
+/* For the check icon */
+.feather.icon-success {
+    color: green; /* or any other color you want */
+}
+
+/* For the ex icon */
+.feather.icon-danger {
+    color: red; /* or any other color you want */
+}
