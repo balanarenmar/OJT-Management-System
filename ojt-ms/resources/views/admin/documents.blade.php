@@ -128,6 +128,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
     {{-- <script src="https://cdn.datatables.net/v/bs4/jq-3.7.0/dt-1.13.5/r-2.5.0/datatables.min.js"></script> --}}
     <script src="https://cdn.datatables.net/v/bs4/jq-3.7.0/dt-1.13.5/datatables.min.js"></script>
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script>
